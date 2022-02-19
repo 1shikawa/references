@@ -5,7 +5,7 @@
 https://dev.classmethod.jp/articles/drawing-a-sequence-diagram-of-a-common-aws-serverless-configuration-with-mermaid/
 https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid
 
-### データ一覧取得
+- ### データ一覧取得
 ```mermaid
 sequenceDiagram
     actor クライアント
@@ -21,7 +21,7 @@ sequenceDiagram
     API -->>- クライアント: 200 OK
 ```
 
-### データ登録
+- ### データ登録
 ```mermaid
 sequenceDiagram
     actor クライアント
