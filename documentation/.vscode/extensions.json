@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "mushan.vscode-paste-image",
+    "romanpeshkov.vscode-text-tables",
+    "mhutchie.git-graph",
+    "hediet.vscode-drawio",
+    "esbenp.prettier-vscode",
+    "bierner.markdown-preview-github-styles",
+    "yzhang.markdown-all-in-one"
+  ]
+}
