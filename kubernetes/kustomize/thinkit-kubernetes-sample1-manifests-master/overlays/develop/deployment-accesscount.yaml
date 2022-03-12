@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: accesscount
+spec:
+  template:
+    spec:
+      containers:
+      - name: accesscount
+        env:
+        - name: DEBUG
+          value: 'false'
+        - name: ENABLE_DEBUGGER
+          value: 'false'
+        - name: DEBUGGER_PORT
+          value: '8000'
+        ports:
+        - name: debugger
+          containerPort: 8000
+          protocol: TCP

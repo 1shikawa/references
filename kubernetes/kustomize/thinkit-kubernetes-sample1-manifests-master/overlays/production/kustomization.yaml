@@ -1,0 +1,35 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ../../base
+
+secretGenerator:
+- name: article-config
+  envs:
+  - config/article/config.env
+- name: accesscount-config
+  envs:
+  - config/accesscount/config.env
+- name: rank-config
+  envs:
+  - config/rank/config.env
+
+configMapGenerator:
+- name: website-config
+  envs:
+  - config/website/config.env
+
+images:
+- name: article
+  newName: registry.gitlab.com/creationline/thinkit-kubernetes-sample1/article
+  newTag: prod
+- name: accesscount
+  newName: registry.gitlab.com/creationline/thinkit-kubernetes-sample1/accesscount
+  newTag: prod
+- name: rank
+  newName: registry.gitlab.com/creationline/thinkit-kubernetes-sample1/rank
+  newTag: prod
+- name: website
+  newName: registry.gitlab.com/creationline/thinkit-kubernetes-sample1/website
+  newTag: prod

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: rank
+  name: rank
+spec:
+  type: ClusterIP
+  selector:
+    app: rank
+  ports:
+  - name: web
+    port: 8080
+    targetPort: web
+  # don't expose debugger port

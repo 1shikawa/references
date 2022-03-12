@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: accesscountdb
+  name: accesscountdb
+spec:
+  type: ClusterIP
+  selector:
+    app: accesscountdb
+  ports:
+  - name: postgres
+    port: 5432
+    targetPort: postgres

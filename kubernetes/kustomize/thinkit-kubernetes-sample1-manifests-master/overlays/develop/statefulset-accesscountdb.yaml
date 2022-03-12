@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: accesscountdb
+  name: accesscountdb
+spec:
+  replicas: 1
+  serviceName: accesscountdb
+  selector:
+    matchLabels:
+      app: accesscountdb
+  template:
+    metadata:
+      labels:
+        app: accesscountdb
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:13-alpine
+        imagePullPolicy: Always
+        env:
+        - name: POSTGRES_PASSWORD
+          value: 'postgres'
+        - name: POSTGRES_DB
+          value: 'accesscount'
+        # TODO: set resource request/ limit
+        resources: {}
+        ports:
+        - name: postgres
+          containerPort: 5432
+          protocol: TCP
+        volumeMounts:
+        - name: dbschema
+          mountPath: /docker-entrypoint-initdb.d/schema.sql
+          subPath: schema.sql
+      volumes:
+      - name: dbschema
+        configMap:
+          name: accesscount-init-db

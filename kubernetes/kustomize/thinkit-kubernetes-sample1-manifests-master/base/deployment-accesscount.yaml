@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: accesscount
+  name: accesscount
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: accesscount
+  template:
+    metadata:
+      labels:
+        app: accesscount
+    spec:
+      containers:
+      - name: accesscount
+        image: accesscount
+        imagePullPolicy: Always
+        envFrom:
+        - secretRef:
+            name: accesscount-config
+        resources:
+          requests:
+            cpu: 200m
+            memory: 512Mi
+          limits:
+            cpu: '1'
+            memory: 2Gi
+        ports:
+        - name: web
+          containerPort: 8080
+          protocol: TCP

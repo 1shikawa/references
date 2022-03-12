@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: articledb
+  name: articledb
+spec:
+  replicas: 1
+  serviceName: articledb
+  selector:
+    matchLabels:
+      app: articledb
+  template:
+    metadata:
+      labels:
+        app: articledb
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:13-alpine
+        imagePullPolicy: Always
+        env:
+        - name: POSTGRES_PASSWORD
+          value: 'postgres'
+        - name: POSTGRES_DB
+          value: 'article'
+        # TODO: set resource request/ limit
+        resources: {}
+        ports:
+        - name: postgres
+          containerPort: 5432
+          protocol: TCP
+        volumeMounts:
+        - name: dbschema
+          mountPath: /docker-entrypoint-initdb.d/schema.sql
+          subPath: schema.sql
+      volumes:
+      - name: dbschema
+        configMap:
+          name: article-init-db
