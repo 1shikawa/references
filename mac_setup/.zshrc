@@ -1,14 +1,14 @@
-# if [ "$(uname -m)" = "arm64" ]; then
-#   eval "$(/opt/homebrew/bin/brew shellenv)"
-#   export PATH="/opt/homebrew/bin:$PATH"
+if [ "$(uname -m)" = "arm64" ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  export PATH="/opt/homebrew/bin:$PATH"
 
-#   . /opt/homebrew/opt/asdf/libexec/asdf.sh
-# else
-#   eval "$(/usr/local/bin/brew shellenv)"
+  . /opt/homebrew/opt/asdf/libexec/asdf.sh
+else
+  eval "$(/usr/local/bin/brew shellenv)"
 
-#   export ASDF_DATA_DIR=~/.asdf_x86
-#   . /usr/local/opt/asdf/libexec/asdf.sh
-# fi
+  export ASDF_DATA_DIR=~/.asdf_x86
+  . /usr/local/opt/asdf/libexec/asdf.sh
+fi
 
 eval "$(starship init zsh)"
 
