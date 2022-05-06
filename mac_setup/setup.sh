@@ -58,4 +58,7 @@ brew install stoplight-studio
 brew install awscli
 brew install aws-sam-cli
 brew install openssh
-brew install gh 
+brew install gh
+brew install jquery
+brew install kube-ps1
+

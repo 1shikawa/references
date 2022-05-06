@@ -1,6 +1,25 @@
 # references
-色々便利なやつをまとめた
+色々なTipsをまとめたもの
 
+## 対応テンプレート
+```
+# やりたいこと
+- 例：TypeScriptでジェネリクスを記述しようとしたらエラーが出た
+[実際のコード]
+
+# エラーメッセージ
+[実際のエラーメッセージ]
+
+# 調査
+[参考になったサイトのURLなど]
+
+# 原因
+[原因となったことを端的に]
+
+# 解決方法
+- hogeをfooすることで解決できた
+[解決後のコード]
+```
 ## シーケンス図 by Mermaid
 https://dev.classmethod.jp/articles/drawing-a-sequence-diagram-of-a-common-aws-serverless-configuration-with-mermaid/
 https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid
