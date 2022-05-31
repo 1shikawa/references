@@ -112,3 +112,12 @@ module.eks.module.node_groups.aws_eks_node_group.workers["provisioning"]: Creati
 
 Apply complete! Resources: 42 added, 0 changed, 0 destroyed.
 ```
+# terraformer
+リソースからTerraformのコード+tfstateを自動で生成するツール。
+
+Terraformerを使わなくてもterraform importコマンドを使うことでリソースを取り込むことはできるが、\
+Terraformerを使うことのメリットは次の通り。
+- tfstateとコードを両方生成してくれる。対してterraform importはtfstateのみ生成。
+- 複数のリソースを一括で取り込める。対してterraform importは1リソースだけ。
+
+リソースをTerraformで作成するときと同様、取り込みたいリソースのprovider pluginが必要となる。

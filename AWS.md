@@ -48,6 +48,8 @@ AWS_ACCESS_KEY_ID=ASIA52MAICAZ7JDCDX3I
 AWS_SECRET_ACCESS_KEY=zrRyBEZGVJ73DlGthPIBTP1A6+yJ040mggggsEGY
 AWS_SESSION_TOKEN=FwoGZXIvYXdzEFgaDNVy8RIvjJhKBkosGyKGAX9jYIhbG+p7S6cocpSU4WxIm6SX/XhM8lIhSgS75n6CT7wARS8GdOUxZcmF5q1w+jA+Uq6XSuNIIpnVjZPzxUvj08I4qj3mSncLoPtCAJegSqJHVRxQROHU3zLIZIHrbau26YpiAhH7T1WXTUOwyJqtSQITZpEuv+dRCOMNV4AbfJfyccVcKJXaipIGMihTtuciNqbIwNmkmsRo/THjgwdLz/tG9PORySVGEYZAZ+NJrvUE/k9t
 ```
+# STS一時認証情報を1コマンドでcredentialsファイルに保存する
+https://blog.usize-tech.com/sts-temp-credential-by-oneliner/
 # S3オブジェクトの中身を見るコマンド
 `aws s3 cp s3://ci-cd-test-bucket-averf/tmp/terraform.tfstate -`
 

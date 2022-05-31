@@ -1,7 +1,9 @@
 # KustomizeとHelmの利用シーン
-- Kustomize：自分が開発、運用しているシステム内のマイクロサービスをデプロイするためのツール \
+- Kustomize：\
+  自分が開発、運用しているシステム内のマイクロサービスをデプロイするためのツール \
   共通部分(`base`)に対して、各環境固有のパッチ(`overlays`)を当てるというスタイル
-- Helm：公開されているアプリケーションをKubernetes上にデプロイ（インストール）する、もしくは自分のアプリケーションを公開するツール
+- Helm：\
+  公開されているアプリケーションをKubernetes上にデプロイ（インストール）する、もしくは自分のアプリケーションを公開するツール
 
 # Helm
 kubernetesクラスタ上に簡単にアプリケーションをインストールできる。
@@ -117,3 +119,22 @@ NAME            CHART                  VERSION
 gitlab-runner   gitlab/gitlab-runner    0.37.2
 argocd          argo/argo-cd            3.33.6
 ```
+# 自作アプリのHelm Chart化
+## Chartを作る順番
+1. Kubernetesマニフェストの作成、動作確認
+2. マニフェストのtemplate化
+   1. 雛形ディレクトリの作成 \
+   `helm create app_name`
+   2. templatesディレクトリのyamlファイル削除 \
+   `rm -rf app_name/templates/*.yaml`
+3. lintやtestで静的解析と動作確認
+   1. helm lintによる静的解析 \
+   `helm lint app_name/`
+   2. helm testによる動作確認 \
+   `helm install --name app_name app_name/` \
+   `helm test app_name`
+4. Chartの公開
+   1. 公開に関するChart.yamlの編集
+   2. tarボールで固める \
+   `helm package app_name`
+   3. Chartリポジトリへの公開
