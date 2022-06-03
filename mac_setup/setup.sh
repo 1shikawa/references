@@ -37,6 +37,7 @@ brew install insomnia            --cask
 brew install discord             --cask
 brew install wireshark           --cask
 brew install toggl-track         --cask
+brew install lens                --cask
 
 brew tap aws/tap
 brew install git
@@ -61,4 +62,5 @@ brew install openssh
 brew install gh
 brew install jquery
 brew install kube-ps1
+brew install krew
 
