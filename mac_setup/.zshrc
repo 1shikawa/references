@@ -33,6 +33,7 @@ alias lsa="ls -la"
 alias k="kubectl"
 alias kc='kubectx | peco | xargs kubectx'
 alias kn='kubens | peco | xargs kubens'
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # ghq+peco+vscode
 alias ghcd='code $(ghq root)/$(ghq list | peco)'

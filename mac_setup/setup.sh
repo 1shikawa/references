@@ -38,6 +38,7 @@ brew install discord             --cask
 brew install wireshark           --cask
 brew install toggl-track         --cask
 brew install lens                --cask
+brew install clipy               --cask
 
 brew tap aws/tap
 brew install git

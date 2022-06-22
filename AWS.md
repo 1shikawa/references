@@ -63,3 +63,19 @@ https://blog.usize-tech.com/sts-temp-credential-by-oneliner/
 
 ## VPC Peering
 
+## VPC Endpoint
+VPC内のリソースとVPC外のAWSリソース等をプライベート通信で連携したい場合に利用する
+#### VPCエンドポイントとPrivateLink
+VPCエンドポイントとAWSサービスとの通信は、Amazonのネットワーク内で完結する。これを`PrivateLink`と呼ぶ。\
+![VPCendpoint_privatelink](./assets/VPCendpoint_privatelink.png) \
+上図では、S3以外のサービスはPrivateLinkで通信されている。\
+VPCエンドポイントにはいくつか種類があり、PrivateLinkを構成可能なものは「インターフェイスエンドポイント」である。\
+インターフェイスエンドポイントの実態は、ENI(Elastic Network Interface)であり、サブネットと紐づけられる。\
+S3やDynamoDBは「ゲートウェイエンドポイント」経由で通信される。\
+インターフェース型は通信に応じて料金がかかるが、ゲートウェイ型はかからない。
+
+[AWS PrivateLink と統合できる AWS のサービス](https://docs.aws.amazon.com/ja_jp/vpc/latest/privatelink/integrated-services-vpce-list.html)
+
+# ENI(ネットワークインタフェース)削除エラーの場合
+以下コマンド実行結果の*Description*で用途を確認する \
+`aws ec2 describe-network-interfaces --network-interface-ids <ネットワークインタフェース ID>`

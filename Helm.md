@@ -11,6 +11,13 @@ kubernetesクラスタ上に簡単にアプリケーションをインストー�
 しかし helm コマンドを使って実行する場合，以下のようになり「宣言的に」管理できないという課題 \
 ↓ \
 Helmfile を使うと helm コマンドを実行するときの設定を YAML で「宣言的に」管理できるようになる!!
+## Helmコマンド
+```
+helm lint CHART_DIR #静的解析
+helm install --dry-run --debug CHART_DIR #生成されるマニフェスト確認(過程で値や関数チェック)
+helm get manifest RELEASE_NAME #クラスタにデプロイされているリソースマニフェストを取得
+helm get values RELEASE_NAME #クラスタにデプロイされているリソースの値を取得
+```
 
 # helm のconfig values の取得方法
 Ex. \
@@ -53,7 +60,6 @@ releases:
 ⇨マニフェストに差分がある場合にhelm upgradeでrevision上がる \
 `helmfile -f helm/helmfile.yaml -e dev sync` \
 ⇨差分がなくても毎回helm upgradeでrevisionが上がっていく
-
 
 # helmfileによるk8sクラスターへのパッケージデプロイ
 ```
