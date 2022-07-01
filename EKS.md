@@ -11,13 +11,25 @@ namespaceで本番環境・検証環境・開発環境を分離する方法も�
 ### マニフェスト管理はシンプルに
 kustomizeを利用することで環境差分を吸収して、1つのリポジトリで全マニフェストを管理する方法をとっています。 Helmはより柔軟にパラメータの指定ができますが、学習コストが高くマニフェスト管理への障壁になる点
 
+# マネージド型ノードグループ
+EKS クラスターに計算能力を提供する基盤となる Amazon EC2 インスタンスも、Amazon EKS がプロビジョニングおよび管理するようになり、Kubernetes バージョンの更新などの運用作業をさらにシンプルに
+https://aws.amazon.com/jp/blogs/news/amazon-eks-and-spot-instances-in-action-at-delivery-hero/
+### EC2 スポットインスタンス
+https://aws.amazon.com/jp/ec2/spot/ \
+Kubernetesワーカーノードのコストを最大90%削減可能。
+複数のインスタンスタイプのリストを提供し、マネージド型ノードグループに設定するインスタンスタイプを多様化して、ノードグループが複数のキャパシティプールを利用できるようにする
+ノードグループ内のSpotインスタンスの1つの中断のリスクが高まり、EC2インスタンスのリバランス通知を受け取ると、EC2 Auto Scaling グループは代替インスタンスを起動しようとします。より多くのインスタンスタイプをマネージド型ノードグループに設定しておくことで、EC2 Auto Scaling が代替のSpotインスタンスを直ちに起動し、中断を安全に処理できる可能性が高まります。
+
 # Kubernetesを中心としたコンテナエコシステムの環境構築や運用ノウハウ
 https://developer.mamezou-tech.com/container/
 
 # Kubernetesクラスタを構築
-### Podアクセス許可(IRSA)
+### PodレベルのAWSリソースへのアクセス許可(IRSA:IAM Roles for Service Accounts)
+[詳解: IAM Roles for Service Accounts](https://aws.amazon.com/jp/blogs/news/diving-into-iam-roles-for-service-accounts/) \
 k8sクラスターからAWSリソースを利用する場合、セキュリティ上IAMで必要最小限のアクセスに制限するのが望ましいです。\
+ワークロードがAWS認証情報を見つけられない場合にEC2インスタンスプロファイルがデフォルトとされる動作だが最小権限の原則に反する。\
 EKSではIRSA(IAM Roles for Service Account)という仕組みが用意されており、Podの単位でIAM Roleを割り当てることが可能です
+![IRSA](./assets/IRSA.png)
 1. AWSリソースに対してCRUD可能なポリシードキュメントを定義
 2. IAM Policy(xxxxxxPolicy)を作成
 3. IAM PolicyをアタッチするIAM Roleを作成(TerraformのIAMモジュール使用)。\

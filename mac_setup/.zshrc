@@ -28,15 +28,16 @@ alias lsa="ls -la"
 # alias arm64e='arch -arm64e zsh'
 # alias x86_64='arch -x86_64 zsh'
 
-
 # kubernetes
 alias k="kubectl"
 alias kc='kubectx | peco | xargs kubectx'
 alias kn='kubens | peco | xargs kubens'
+alias ppy="popeye"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-# ghq+peco+vscode
-alias ghcd='code $(ghq root)/$(ghq list | peco)'
+# ghq+peco+etc
+alias ghcd='cd $(ghq root)/$(ghq list | peco)'
+alias ghcde='code $(ghq root)/$(ghq list | peco)'
 
 ###### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
