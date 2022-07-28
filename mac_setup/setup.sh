@@ -64,4 +64,5 @@ brew install gh
 brew install jquery
 brew install kube-ps1
 brew install krew
+brew install graphviz
 
