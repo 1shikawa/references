@@ -89,3 +89,29 @@ AWS Load Balancer Controller の場合はACM利用を前提として、Ingress�
 
 #### TLS証明書の管理(Cert Manager)
 https://cert-manager.io/docs/
+
+# Kubernetesの拡張方法の基礎
+https://developers.cyberagent.co.jp/blog/archives/36200/
+
+#### Operatorとは
+カスタムリソースを定義することでKubernetesの機能を拡張し、複雑なアプリケーションの導入や運用などを自動化する仕組みになります。
+#### Kubernetes Controllerとは
+特定のリソースの状態を宣言された状態に調整して収束させるプログラム\
+Kubernetes APIを介してリソースの操作や任意の処理を行う(Reconciliationループ)
+
+#### Custom Controller
+特定のリソースの定義に応じて任意の処理を行うController
+
+#### Custom Resource
+任意のフィールドを持つ新しいリソースを独自に定義可能
+#### Admission Webhook
+KubernetesのAPIにリソースの作成や削除などのリクエストが入ってきたタイミングで \
+リソースの検証・変更(validatingやmutating)をWebhookで実行する仕組み
+- validating \
+  Podの作成時や変更時に、latestのタグが含まれていれば作成や変更を拒否するなど
+- mutating \
+  Podの作成時や変更時に自動的にサイドカーをインジェクトするなど
+
+#### kubebuilderやライブラリの利用
+Custom ControllerやAdmission Webhookを実装するにあたっては、\
+kubebuilderなどのフレームワークや、その内部で使われているライブラリを利用できる

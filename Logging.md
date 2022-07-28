@@ -16,6 +16,11 @@ PromtailはDaemonSetで各ノードに配置され、各コンテナが標準出
 GrafanaのデータソースにLokiを設定すると、アプリケーションのログが表示できるようになっています
 アプリケーションによっては、コンテナの標準出力ではなくファイルにログを書き込むものがあります。その場合は、同一Podのサイドカーコンテナとしてpromtailを動かしてLokiにログを転送するようにPodを構成しましょう。
 
+### サンプルアプリケーションによるログ出力
+https://www.ogis-ri.co.jp/otc/hiroba/technical/kubernetes_use/part5.html
+
+### GrafanaLokiのデータ格納先をS3にする
+
 # おすすめ構成例
 https://atmarkit.itmedia.co.jp/ait/articles/2202/25/news014.html#041
 ![おすすめ構成例](assets/Observability_examples.png)

@@ -4,8 +4,30 @@
 - 現在の実体： 存在するAWSオブジェクト、リソース
 
 # Remote Backend
-複数人による処理バッティングを防ぐ排他制御、バージョン管理、暗号化対応 \
+- 複数人による処理バッティングを防ぐ排他制御、バージョン管理、暗号化対応 \
 https://blog-benri-life.com/terraform-state-aws-s3-dynamodb-backend/
+
+# 変数定義とその扱い
+- コマンド引数 (-var = <VALUE>)
+- 環境変数 ( TF_VAR_<NAME> )
+- 変数ファイル( example.tfvars)
+
+## 管理方法
+Stateの分割指針としては、普段から変化のないもの(network系)と変化のあるものと分けるのが通例と考える。
+Workspaceは便利のようで使い方を誤ると危ないため、運用ではそこまで使われるケースは少ないらしい。
+- Network,RDSなどは別Stateで管理.
+- Workspaceは使用しない
+- 環境毎の情報はtfvarsファイルで環境毎に用意する
+
+## Module関連
+公開されているModuleは取説を最後まで読むこと。オプションで色々機能が有る
+チームで管理する場合は、公式モジュールの利用優先度を決める方が良い
+Moduleを作成する際には[Standard Module Structure](https://www.terraform.io/registry/modules/publish)をまず見る。
+output/inputの内容を理解すること
+
+- 生産性と統一性を優先に公式のModuleを率先して使用する
+- 使用前に要件があっているか実際って確認する
+- モジュールを作る場合、粒度を考える。(app_serverみたいな)特化型のモジュールも有り?
 
 # コードをフォーマットし、見栄えを揃える
 `terraform fmt -recursive` \
@@ -63,6 +85,8 @@ commands will detect it and remind you to do so if necessary.
 # plan結果をファイル出力
 `terraform plan -no-color > tfplan.txt`
 
+# # plan結果を見やすく出力
+`terraform plan -no-color | grep --line-buffered -E '^\S+|^\s{,2}(\+|-|~|-/\+) |^\s<=|^Plan'\n`
 # apply処理結果
 ```
 module.eks.aws_eks_cluster.this[0]: Still creating... [8m31s elapsed]

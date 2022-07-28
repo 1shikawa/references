@@ -42,20 +42,95 @@ kubernetes-dashboardなどのダッシュボードツールを利用すると、
 # Prometheus概要
 ## Prometheusアーキテクチャ
 https://atmarkit.itmedia.co.jp/ait/articles/2205/31/news011.html
-![Prometheusアーキテクチャ](assets/Prometheus_architecture.png)
+![Prometheusアーキテクチャ1](assets/Prometheus_architecture_1.png)
 PrometheusはPULL型のメトリクス収集を採用していますので、Prometheus側から定期的にメトリクスを取りに来ます。PUSH型の場合はアプリケーション側からメトリクスをモニタリングツールに送ります。
 TODO:データが失われてしまうので実際に運用する場合はpersistentVolumeを用意しておきましょう。
+
+---
+![Prometheusアーキテクチャ1-2](assets/Prometheus_architecture_1_2.png)
+
+https://www.ogis-ri.co.jp/otc/hiroba/technical/kubernetes_use/part5.html
+![Prometheusアーキテクチャ2](assets/Prometheus_architecture_2.jpeg)
+`ServiceMonitor`リソースでターゲットとなる`Service`を指定し、Prometheusは`ServiceMonitor`で定義されているサービスからメトリクスを収集します。（`Service`を定義していないPod用に`PodMonitor`もあります） \
+ノードに関するメトリクスはnode-exporterから、コンテナに関するメトリクスはcAdvisorから収集します。prometheus-operatorを導入するとこれらのメトリクスを収集するためのServiceMonitorが標準で導入されます。アプリケーションが出力するメトリクスの監視は個別にServiceMonitorを導入して監視します。
+
+### インストルメンテーション (Instrumentation) とは
+インストルメンテーション (Instrumentation) とは、アプリケーションにメトリクスを生成するソースコードを追加するコンポーネントです。\
+https://hogetech.info/oss/docker/prometheus
 # Kubernetesリソースのメトリクス収集・可視化
-Metrics APIを利用したモニタリングはKubernetes固有の仕組みでPrometheusに直接対応するものではないため、PrometheusでPod、Nodeのメトリクスを収集するにはmetrics-serverではなく、別途exporterをインストールする必要があります。Nodeについては`node-exporter`、Podや他Kubernetesリソースについては`kube-state-metrics`が最も広く利用されています。HelmでKubernetesクラスタにPrometheusをインストールした場合には、これらのexporterも同時にインストールされています。
-kube-prometheus-stackでは、デフォルトでデータソース(=Prometheus)の設定に加えて、Kubernetesのコンテナ関連のメトリクス収集やGrafanaのダッシュボードがセットアップされています。
+Metrics APIを利用したモニタリングはKubernetes固有の仕組みで**Prometheusに直接対応するものではない**ため、PrometheusでPod、Nodeのメトリクスを収集するにはmetrics-serverではなく、別途exporterをインストールする必要があります。Nodeについては`node-exporter`、Podや他Kubernetesリソースについては`kube-state-metrics`が最も広く利用されています。HelmでKubernetesクラスタにPrometheusをインストールした場合には、これらのexporterも同時にインストールされています。
+`kube-prometheus-stack`では、デフォルトでデータソース(=Prometheus)の設定に加えて、Kubernetesのコンテナ関連のメトリクス収集やGrafanaのダッシュボードがセットアップされています。
 したがって、インストールした時点で既に各種メトリクス収集が始まり、Grafanaダッシュボードをメトリクスを確認できます。
 
 # アプリケーション固有のメトリクス収集・可視化
+
+### Golang
+#### アプリケーションコード内の実装
+```Golang
+import (
+  ...
+  "github.com/prometheus/client_golang/prometheus"
+  "github.com/prometheus/client_golang/prometheus/promhttp"
+)
+
+var (
+  httpReqs = prometheus.NewCounterVec(
+    prometheus.CounterOpts{
+      Name: "http_request_total",
+      Help: "Number of HTTP Request.",
+    },
+    []string{"path"},
+  )
+)
+
+func init() {
+  prometheus.MustRegister(httpReqs)
+}
+
+func metrics(w http.ResponseWriter, r *http.Request) {
+  promhttp.Handler().ServeHTTP(w, r)
+}
+
+func handler(w http.ResponseWriter, r *http.Request) {
+  m := httpReqs.WithLabelValues("/")
+  m.Inc()
+  fmt.Fprint(w, string("hello world"))
+}
+
+func main() {
+  http.HandleFunc("/metrics", metrics)
+  http.HandleFunc("/", handler)
+  http.ListenAndServe(":18080", nil)
+}
+```
+#### Prometheus側でのメトリクス収集定義
+アプリケーションのServiceをターゲットとするServiceMonitorリソースを作成します。この例では、defaultネームスペースにある「app: demo-service」ラベルを持つサービスをターゲットに「spec.ports.name: http」のポートからメトリクスを収集するServiceMonitorが作成されます。
+```yaml
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: servicemonitor-demo-service
+  namespace: monitoring
+  labels:
+    serviceapp: demo-service
+    release: prometheus-operator
+spec:
+  selector:
+    matchLabels:
+      app: demo-service
+  endpoints:
+  - port: http
+    interval: 30s
+  namespaceSelector:
+    matchNames:
+    - default
+```
+
 ### Node.js
 #### アプリケーションコード内の実装
 自動でNode.jsのメトリクスを生成し、エンドポイントを公開するprometheus-api-metricsを使用します。
 後は、エントリーポイントのindex.tsでセットアップ用のコードを追加するだけです。
-```
+```Node.js
 import apiMetrics from 'prometheus-api-metrics';
 
 const app = express();
@@ -154,6 +229,91 @@ metadata:
 #### 主なExporter一覧
 ![主なExporter一覧](assets/Prometheus_exporter.png)
 
+
+# アラート
+## AlertManagerアーキテクチャ
+![AlertManagerアーキテクチャ](./assets/AlertManager_architecture.jpeg)
+Prometheusで収集したメトリクスをアラートルールに基づいてAlertManagerへ連携します。AlertManagerから各ツール（Slack、メール等）に連携する仕組みになります。AlertManagerはアラートの一覧確認や一時的な抑制などを行うためのツールになります。
+
+### アラートルールとは
+Prometheus サーバーのアラートが発火するルールです。\
+例えば、「CPU > 90% でアラートを発火」などのルールを定義できます。\
+アラートルールはアラートを発火するだけで、何もしません。
+### アラート対象のモニタリング
+メトリクス結果をアラートとして認識するようにアラートルールを設定します。この例では1分間にエラーが1つ以上出力されたら「severity: critical」ラベルを付与したアラートを作成します。
+```yaml
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: demo-alert-rules
+  namespace: monitoring
+  labels:
+    app: kube-prometheus-stack
+    release: prometheus-operator
+spec:
+  groups:
+# 1分間にエラーが1つ以上出力されたら「severity: critical」ラベルを付与したアラートを作成
+- name: rules-demo-alert
+    rules:
+    - alert: ApplicationError
+      expr: >-
+          count (promtail_custom_log_error_total) > 0
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        message: >-
+          {{ $labels.job }}/{{ $labels.service }} targets in {{ $labels.namespace }} namespace are application error.
+```
+### Alertingmanager とは
+Alertmanager は、Prometheus サーバーから受信したアラートをメールやチャットなどに送信します。
+
+### AlertManager設定
+AlertMangerでは主にreceivers句とroute句を設定します。receivers句ではアラートの送信先に関する設定を定義し、route句ではどの条件の場合にどのレシーバに流すかを定義します。
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  labels:
+    alertmanager: main
+    app.kubernetes.io/component: alert-router
+    app.kubernetes.io/name: alertmanager
+    app.kubernetes.io/part-of: kube-prometheus
+    app.kubernetes.io/version: 0.22.2
+  name: alertmanager-main
+  namespace: monitoring
+stringData:
+  alertmanager.yaml: |-
+    "global":
+      "resolve_timeout": "5m"
+      "slack_api_url": "<slack_webhook_url>"
+    "receivers":
+    - "name": "Default"
+    - "name": "slack_notifications"
+      "slack_configs":
+      - "channel": "#<チャンネル名>"
+        "send_resolved": true
+    "route":
+      "group_by":
+      - "namespace"
+      "group_interval": "5m"
+      "group_wait": "30s"
+      "receiver": "Default"
+      "repeat_interval": "12h"
+      "routes":
+      # 「severity: critical」ラベルのついたアラートはSlackへ通知
+      - "match":
+          "severity": "critical"
+        "receiver": "slack_notifications"
+type: Opaque
+```
+
+### Grafana UIからの各種設定
+https://recruit.gmo.jp/engineer/jisedai/blog/kubernetes-metrics-and-alert-notification/　\
+以下の設定をGrafana上から行える。
+- アラート通知先(Contact Point)
+- 通知ポリシー(Notification Policy)
+- アラートルール(Rules)
 # Prometheus運用ポイント
 ### PrometheusOperator
 Prometheus OperatorはKubernetesオペレーターの一つで、Prometheusと関連コンポーネント管理するものです。Prometheusをリソース定義として扱えたり、ラベルをしていることでスクレイプ設定を自動的に生成できる「PodMonitor」「ServiceMonitor」を利用できたりします。Prometheusリソースでは、Prometheusのバージョンやデータ永続化、レプリカ数の定義などができます。
