@@ -69,7 +69,7 @@ argocd-server: v2.3.1+b65c169
 Password updated
 Context 'localhost:8080' updated
 ```
-# ArgoCDユーザー登録
+# ArgoCDユーザーアカウント登録
 ```
 kubectl edit cm argocd-cm -n argocd
 
@@ -89,6 +89,7 @@ $ argocd account update-password \
 ```
 
 # ArgoCD Project(Role)の作成
+参照：[ArgoCDのアカウントにロールを割り当てて権限設定する](https://qiita.com/ipppppei/items/c455c50ba7a45e017b91)
 ```
 kubectl apply -f mailpaas.yaml
 
@@ -120,6 +121,11 @@ spec:
 SERVER                                   NAME            VERSION  STATUS      MESSAGE                                              PROJECT
 https://kubernetes.docker.internal:6443  docker-desktop           Unknown     Cluster has no application and not being monitored.
 https://kubernetes.default.svc           in-cluster      1.22     Successful
+```
+
+# デプロイ対象クラスターの追加
+```
+
 ```
 
 # 登録アプリケーション確認

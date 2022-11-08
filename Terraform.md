@@ -7,6 +7,89 @@
 - 複数人による処理バッティングを防ぐ排他制御、バージョン管理、暗号化対応 \
 https://blog-benri-life.com/terraform-state-aws-s3-dynamodb-backend/
 
+### リモートステートバケットの作成と設定
+```
+# ステートバケットの作成
+aws s3api create-bucket --bucket mailpaas-dev-remote-tfstate --create-bucket-configuration LocationConstraint=ap-northeast-1
+
+# バージョニング設定
+aws s3api put-bucket-versioning --bucket mailpaas-dev-remote-tfstate --versioning-configuration Status=Enabled
+
+# 暗号化設定
+aws s3api put-bucket-encryption --bucket mailpaas-dev-remote-tfstate \
+--server-side-encryption-configuration '{
+  "Rules":[
+            {
+              "ApplyServerSideEncryptionByDefault":{
+              "SSEAlgorithm":"AES256"
+              }
+            }
+          ]
+      }'
+
+# ブロックパブリックアクセス設定
+aws s3api put-public-access-block --bucket mailpaas-dev-remote-tfstate \
+--public-access-block-configuration '{
+  "BlockPublicAcls":true,
+  "IgnorePublicAcls":true,
+  "BlockPublicPolicy":true,
+  "RestrictPublicBuckets":true
+}'
+```
+
+### 排他制御(ロック)テーブルの作成
+```
+aws dynamodb create-table \
+        --table-name mailpaas-dev-backend-lock \
+        --attribute-definitions AttributeName=LockID,AttributeType=S \
+        --key-schema AttributeName=LockID,KeyType=HASH \
+        --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1
+{
+    "TableDescription": {
+        "AttributeDefinitions": [
+            {
+                "AttributeName": "LockID",
+                "AttributeType": "S"
+            }
+        ],
+        "TableName": "mailpaas-dev-backend-lock",
+        "KeySchema": [
+            {
+                "AttributeName": "LockID",
+                "KeyType": "HASH"
+            }
+        ],
+        "TableStatus": "CREATING",
+        "CreationDateTime": "2022-08-05T17:06:10.125000+09:00",
+        "ProvisionedThroughput": {
+            "NumberOfDecreasesToday": 0,
+            "ReadCapacityUnits": 1,
+            "WriteCapacityUnits": 1
+        },
+        "TableSizeBytes": 0,
+        "ItemCount": 0,
+        "TableArn": "arn:aws:dynamodb:ap-northeast-1:949993607219:table/mailpaas-dev-backend-lock",
+        "TableId": "340514fc-1a2d-4d27-9ad5-991b0ef649ac"
+    }
+}
+```
+
+## terraform backend設定
+```
+terraform {
+  required_version = "~> 1.2.0"
+  # remote state settings
+  backend "s3" {
+    bucket = "mailpaas-dev-tfstate"
+    key    = "default/terraform.tfstate"
+    region = "ap-northeast-1"
+
+    dynamodb_table = "mailpaas-dev-backend-lock"
+    encrypt        = true
+  }
+
+```
+
 # 変数定義とその扱い
 - コマンド引数 (-var = <VALUE>)
 - 環境変数 ( TF_VAR_<NAME> )
@@ -136,6 +219,12 @@ module.eks.module.node_groups.aws_eks_node_group.workers["provisioning"]: Creati
 
 Apply complete! Resources: 42 added, 0 changed, 0 destroyed.
 ```
+
+# ドキュメント生成
+モジュールの入力変数、出力変数定義をまとめたドキュメントを自動生成する。
+```
+terraform-docs markdown table --output-file README.md --output-mode inject ./path/to/module
+```
 # terraformer
 リソースからTerraformのコード+tfstateを自動で生成するツール。
 
@@ -145,3 +234,7 @@ Terraformerを使うことのメリットは次の通り。
 - 複数のリソースを一括で取り込める。対してterraform importは1リソースだけ。
 
 リソースをTerraformで作成するときと同様、取り込みたいリソースのprovider pluginが必要となる。
+
+# Terragrunt
+
+![Terragrunt_summary](assets/Terragrunt_summary.png)

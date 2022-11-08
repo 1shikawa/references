@@ -13,6 +13,7 @@ kustomizeを利用することで環境差分を吸収して、1つのリポジ�
 
 # マネージド型ノードグループ
 EKS クラスターに計算能力を提供する基盤となる Amazon EC2 インスタンスも、Amazon EKS がプロビジョニングおよび管理するようになり、Kubernetes バージョンの更新などの運用作業をさらにシンプルに
+https://docs.aws.amazon.com/ja_jp/eks/latest/userguide/managed-node-groups.html
 https://aws.amazon.com/jp/blogs/news/amazon-eks-and-spot-instances-in-action-at-delivery-hero/
 ### EC2 スポットインスタンス
 https://aws.amazon.com/jp/ec2/spot/ \
@@ -69,7 +70,6 @@ DNSサーバにIngress(ALB)とのマッピングを追加する必要がある�
 Ingressに新しいホストが追加される度に別途DNSでマッピング作業が発生する。\
 手動による設定だと抜け漏れミス等が発生する可能性がある。\
 Kubernetes上のServiceリソースやIngressリソースを監視しつつDNSレコードを動的に管理できるようになる
-
 ### インストール前の準備
 - IAM Policy(external-dnsがRoute53を更新する用)
 - IAM Role(EKSのOIDCプロバイダ経由でk8sのServiceAccountが引受可能な)
@@ -79,7 +79,56 @@ Kubernetes上のServiceリソースやIngressリソースを監視しつつDNS�
 - Helm Chartベースで設定情報を宣言的に管理、インストールする。\
 https://artifacthub.io/packages/helm/bitnami/external-dns
 
+## ストレージ管理(CSIドライバ)
+コンテナではローカファイルシステムは一時的なもので、保存しても再起動時にそのデータは消失してしまいます。
+コンテナが稼働しているノード自体のストレージにデータを保存することも可能ですが(hostpath)、各PodがどのNodeに配置されるかはスケジューラ次第で、次に起動されるときに同じノードが利用できるということは保証されません[1]。
+やはりデータについてはコンテナはもちろんノードからも分離して管理することが理想的です。\
+KubernetesではCSI(Container Storage Interface)というk8sとストレージプロバイダーとのインターフェースが規定されており、それを実装したCSIドライバを組み込むことで様々なストレージについて統一インターフェース(つまりはマニフェストファイル)で利用できるようになっています。 [2]\
+k8sクラスタ環境のストレージ利用については以下の2種類が用意されています。\
+- 静的プロビジョニング
+事前にストレージと、k8s上のPV(PersistentVolume)リソースを作成しておき、それに対してアプリからのストレージ要求(PVC:PersistentVolumeClaim)に対応する方法(AZを意識してEBSボリュームの手動作成やPVへの関連付け等はかなり面倒)
+- 動的プロビジョニング
+アプリからのストレージ要求(PVC)に対応して、ストレージとPVを動的に作成して紐付けを行う方法。別途StorageClassリソースで動的生成の手順を指定しておく。[3]
 
+### インストール前の準備
+- IAM Policy(CSIドライバがEBS/EFSにアクセスする用)
+- IAM Role(EKSのOIDCプロバイダ経由でk8sのServiceAccountが引受可能な)
+- k8s上にServiceAccountを作成して上記IAM Roleと紐付け
+
+### EBSとEFSの違い
+#### EBS
+EBSはAZ(Availability Zone)を跨って利用することはできませんので、まずk8sのノードがどのAZに配置されているのかを確認
+
+#### EFS
+NFSプロトコルを利用する共有ファイルストレージサービス。EFSはAZ内でのみ利用可能なEBSと異なり、同一リージョン内の複数AZに冗長化されるため、AZ障害が発生しても別のAZのノードから引き続き利用することが可能です。
+逆に多数の読み書きが発生する際のパフォーマンスや、コストの点ではEBSに劣りますので、ユースケースに応じて選択する必要があります。\
+EFSは静的・動的プロビジョニングのどちらでも、事前にファイルシステムとそれに対応するマウントターゲットを準備する必要があります。
+## 秘匿情報管理
+秘匿情報自体を暗号化しgit管理できるようにする
+- helm secret
+  helm Chartであることが前提
+- Sealed Secret
+  `SealedSecret` Operatorと`kubeseal`コマンド、デプロイ時にクラスター上に作成される公開鍵・秘密鍵を組み合わせる。\
+  `kubeseal`コマンドによって`Secret`リソースを暗号化したテンプレートが用意され、そのテンプレートを利用して \
+  `SealedSecret`リソースを作成することで`Secret`リソースが作成される。
+外部の秘匿情報管理サービスと連携して`Secret`リソースを取得、設定する
+- External Secrets
+  `ExternalSecrets` Controllerを利用して、外部のサービスに保管された秘匿情報から`Secret`リソースを作成する。\
+  秘匿情報の保管はKubernetes以外の外部サービスを利用することで、Kubernetes向けのマニフェストファイル内に直接データを設定する必要がなくなります。Amazon EKS上で`External Secrets`を利用する際もIRSAを利用することで、必要最小限の権限付与に抑え、セキュリティを向上することが期待できます。
+
+  External SecretsをIRSAで利用する場合の簡略図。図中の数字は処理のステップ順を表す。
+  ![external-secrets](./assets/external-secrets.jpeg)
+
+- AWS Secrets and Configuration Provider (ASCP)
+  `ASCP`は`Secrets Store CSI Driver`を使って、`AWS Secrets Manager`からPodに対してマウントされたストレージボリュームとしてシークレットを公開する \
+  `Secrets Store CSI`を持つ`ASCP`はDaemonSetとしてデプロイされます。現在のところFargateではDaemonSetはサポートされていないため、AWS Fargateノードを持つEKSクラスターの場合は利用できない。
+  https://artifacthub.io/packages/helm/aws/csi-secrets-store-provider-aws
+
+上記比較記事：https://mixi-developers.mixi.co.jp/compare-eso-with-secret-csi-846ed8b1c9b
+### external-secretsインストール前の準備
+- IAM Policy(external-secretsがSecrets Managerから秘匿情報を取得する用)
+- IAM Role(EKSのOIDCプロバイダ経由でk8sのServiceAccountが引受可能な)
+- k8s上にServiceAccountを作成して上記IAM Roleと紐付け
 ## HTTPS通信
 現時点でALBはACM以外の証明書を使う術ないため、\
 AWS Load Balancer Controller の場合はACM利用を前提として、Ingressのannotationでマッピングする。

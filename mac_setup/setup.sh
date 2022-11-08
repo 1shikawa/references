@@ -16,6 +16,9 @@ mas install 425955336  # Skitch
 mas install 1176895641 # Spark
 mas install 1278508951 # Trello
 mas install 414855915  # WinArchiver Lite
+mas install 1407015686 # Paste Plain Text
+mas install 405399194  # Kindle
+mas install 1429033973 # RunCat
 
 brew install google-japanese-ime --cask
 brew install google-chrome       --cask
@@ -39,8 +42,12 @@ brew install wireshark           --cask
 brew install toggl-track         --cask
 brew install lens                --cask
 brew install clipy               --cask
+brew install warp                --cask # ternimal
+brew install raycast             --cask # rancher
+brew install tableplus           --cask # sql client
 
 brew tap aws/tap
+brew tap jhawthorn/fzy # enhancd
 brew install git
 brew install wget
 brew install asdf
@@ -65,4 +72,9 @@ brew install jquery
 brew install kube-ps1
 brew install krew
 brew install graphviz
+brew install fzy ccat percol fzf # enhancd
+brew install exa
+brew install bat
+brew install infracost # for terraform
+brew install terraformer # for terraform
 
