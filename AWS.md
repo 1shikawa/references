@@ -79,3 +79,22 @@ S3やDynamoDBは「ゲートウェイエンドポイント」経由で通信さ�
 # ENI(ネットワークインタフェース)削除エラーの場合
 以下コマンド実行結果の*Description*で用途を確認する \
 `aws ec2 describe-network-interfaces --network-interface-ids <ネットワークインタフェース ID>`
+
+# マルチアカウント管理
+### スイッチロールによるIAMユーザーの統一
+「認証」するIAMユーザーを1つにし、認可と分ける
+![](https://service.plan-b.co.jp/wp/wp-content/uploads/switch-640x280.png)
+
+- プロダクトのアカウントでスイッチするIAMロールに関しては、AWS標準のポリシーのみを利用する
+![iam policy](/assets/iam_policy.png)
+
+### AWS Organizationsによる複数アカウントの組織化
+- アカウントの役割を明確にし、ツリーでの制御をできるようにする \
+  マルチアカウントに分割することで、コストの可視化が容易になり、権限整理もあわせて進む
+![](https://service.plan-b.co.jp/wp/wp-content/uploads/organizations-640x280.png)
+
+### AWS SSOによる認証・認可、権限の一括管理
+ユーザー(+グループ)」×「ロール」×「アカウント」の権限管理が一括でできる。
+- AWS SSOの画面上で一括してユーザーと認可を管理できる。他のアカウントを見に行く必要はない
+- IAMユーザーが不要になるのでクレデンシャルを持ち続ける必要がなく、IAMロールの有効期限付きクレデンシャルだけになる
+- ログイン後にアカウントとロールの組み合わせが表示されたり、AWS CLI v2で対応していたりと、マルチアカウント間の操作ストレスがかなり低い

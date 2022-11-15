@@ -22,9 +22,9 @@ mas install 1429033973 # RunCat
 
 brew install google-japanese-ime --cask
 brew install google-chrome       --cask
-brew install firefox             --cask
+# brew install firefox             --cask
 brew install dropbox             --cask
-brew install skype               --cask
+# brew install skype               --cask
 brew install cheatsheet          --cask
 brew install visual-studio-code  --cask
 brew install docker              --cask
@@ -34,14 +34,14 @@ brew install authy               --cask
 brew install notable             --cask
 brew install postico             --cask
 brew install arduino             --cask
-brew install sequel-pro          --cask
+# brew install sequel-pro          --cask
 brew install brooklyn            --cask
 brew install insomnia            --cask
-brew install discord             --cask
+# brew install discord             --cask
 brew install wireshark           --cask
 brew install toggl-track         --cask
 brew install lens                --cask
-brew install clipy               --cask
+# brew install clipy               --cask
 brew install warp                --cask # ternimal
 brew install raycast             --cask # rancher
 brew install tableplus           --cask # sql client

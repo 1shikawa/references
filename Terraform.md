@@ -40,10 +40,13 @@ aws s3api put-public-access-block --bucket mailpaas-dev-remote-tfstate \
 ### 排他制御(ロック)テーブルの作成
 ```
 aws dynamodb create-table \
-        --table-name mailpaas-dev-backend-lock \
+        --table-name mailpaas-tes-backend-lock \
         --attribute-definitions AttributeName=LockID,AttributeType=S \
         --key-schema AttributeName=LockID,KeyType=HASH \
         --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1
+```
+output:
+```
 {
     "TableDescription": {
         "AttributeDefinitions": [
@@ -168,7 +171,7 @@ commands will detect it and remind you to do so if necessary.
 # plan結果をファイル出力
 `terraform plan -no-color > tfplan.txt`
 
-# # plan結果を見やすく出力
+### plan結果を見やすく出力
 `terraform plan -no-color | grep --line-buffered -E '^\S+|^\s{,2}(\+|-|~|-/\+) |^\s<=|^Plan'\n`
 # apply処理結果
 ```
