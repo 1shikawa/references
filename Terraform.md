@@ -241,3 +241,9 @@ Terraformerを使うことのメリットは次の通り。
 # Terragrunt
 
 ![Terragrunt_summary](assets/Terragrunt_summary.png)
+
+### terragrunt.hcl
+Terragrunt でリソース管理を行うには、バックエンド設定などを記述する`terragrunt.hcl`というファイルが必要になります。 \
+`terragrunt.hcl` には 1 つの親ファイルと複数の子ファイルがあり、共通的な設定（バックエンド情報など）を親ファイルに記述します。\
+これを複数の子ファイルから参照することで DRY な記述を実現しています。 \
+https://zenn.dev/simpleform/articles/20221111-01-terraform-with-terragrunt
