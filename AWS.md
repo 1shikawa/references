@@ -98,3 +98,44 @@ S3やDynamoDBは「ゲートウェイエンドポイント」経由で通信さ�
 - AWS SSOの画面上で一括してユーザーと認可を管理できる。他のアカウントを見に行く必要はない
 - IAMユーザーが不要になるのでクレデンシャルを持ち続ける必要がなく、IAMロールの有効期限付きクレデンシャルだけになる
 - ログイン後にアカウントとロールの組み合わせが表示されたり、AWS CLI v2で対応していたりと、マルチアカウント間の操作ストレスがかなり低い
+
+[AWS Organizations & IAM Identity Center利用をオススメしてみる(AWS Organizations活用のリアル補足)](https://product.st.inc/entry/2022/12/23/102300)
+
+### AWS Control TowerによるマルチアカウントAWS環境の統制
+AWS Control TowerではAccount Factoryという機能を使用して、新規AWSアカウントを作成でき、CloudTrailやConfig、Control Towerで設定されたガードレール（現在はコントロールと呼びます）が自動設定される。また、AWSアカウントの設定はAWS Service Catalogを使用して設定される。\
+[AWS マルチアカウント統制の要件検討アプローチ例](https://aws.amazon.com/jp/blogs/news/defining-requirements-of-multi-account-landing-zone/)
+
+- AWS Control Tower で管理できる機能と検討ポイント
+![Alt text](https://d2908q01vomqb2.cloudfront.net/b3f0c7f6bb763af1be91d9e74eabfeb199dc1f1f/2022/10/30/AWS-Control-Tower-%E3%81%A7%E7%AE%A1%E7%90%86%E3%81%A7%E3%81%8D%E3%82%8B%E6%A9%9F%E8%83%BD-1.png)
+
+![](assets/ControlTower.png)
+
+# Fargate vs EC2
+| 項目 | Fargate | EC2 |
+| :-- | :-- | :-- |
+| コンピューティングリソース | 割高 | 適正 |
+| 設計上の考慮事項 | 少ない | 多い |
+| 運用コスト | 低い　 | 高い |
+| セキュリティの考慮事項 | 少ない | 多い |
+
+Fargateを採用することで、パフォーマンスに対するコンピューティングコスト +40%という料金インパクトは意外に大きいと感じられたのではないでしょうか。\
+NewsPicksでは、コストの観点からECS on EC2でサービスを運用していますが、当初on EC2のデメリットと考えていた設計や運用の問題は「思っていたほど大変ではなかったのでコストメリットが上回るEC2を採用してよかった」というのが率直な感想です。
+
+# RDS vs Aurora
+|比較項目|RDS|Aurora|
+|:----|:----|:----|
+|データベースエンジン|MySQL,PostgreSQL,MongoDB,Oracle,SQL Server|MySQL(互換),PostgreSQL(互換)|
+|ストレージアーキテクチャ|EBSがインスタンス付属|Aurora クラスター全体で共有|
+|ストレージの自動スケーリング|設定可|デフォルトで自動拡張|
+|耐久性|インスタンス付属のミラーリング用EBSで複製|3AZ で6か所に複製|
+|可用性|マルチAZのみ|Aurora レプリカ|
+|自動復旧時間|マルチAZ時60秒、シングルAZでは復旧不可|60秒~120秒、レプリカなしでもAZ障害以外は自動復旧可（10分以内）|
+|読み取りスループット向上|リードレプリカ最大5台|Aurora レプリカ最大15台|
+|スケーリング|なし|自動で Aurora レプリカを増減可能|
+|バックアップ保持期間|0～35日|1～35日|
+|データの復元|ポイントインタイムリカバリで5分前まで秒単位|ポイントインタイムリカバリで5分前まで秒単位|
+|キャッシュ|再起動で失われる|DBプロセスとキャッシュが別で管理、再起動後もキャッシュが利用可能|
+|価格|起動時間＋ストレージ料金|起動時間＋ストレージ料金＋ストレージI/O|
+
+### RDS と Aurora どっちを使うかフロー
+![RDS と Aurora どっちを使うかフロー](https://res.cloudinary.com/zenn/image/fetch/s--ty2eUSve--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_1200/https%3A//storage.googleapis.com/zenn-user-upload/deployed-images/a8d28bcb4af836dbe5f4e9e0.png%3Fsha%3D8ca9be5668e677cf7a03a41d30ac8083faf08b57)

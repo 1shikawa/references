@@ -99,7 +99,7 @@ terraform {
 - 変数ファイル( example.tfvars)
 
 ## 管理方法
-Stateの分割指針としては、普段から変化のないもの(network系)と変化のあるものと分けるのが通例と考える。
+tfstateの分割指針としては、普段から変化のないもの(network系)と変化のあるものと分けるのが通例と考える。
 Workspaceは便利のようで使い方を誤ると危ないため、運用ではそこまで使われるケースは少ないらしい。
 - Network,RDSなどは別Stateで管理.
 - Workspaceは使用しない
@@ -169,56 +169,21 @@ commands will detect it and remind you to do so if necessary.
 ```
 
 # plan結果をファイル出力
+tfコードとtfstateが比較される
 `terraform plan -no-color > tfplan.txt`
 
 ### plan結果を見やすく出力
 `terraform plan -no-color | grep --line-buffered -E '^\S+|^\s{,2}(\+|-|~|-/\+) |^\s<=|^Plan'\n`
-# apply処理結果
+# プロビジョニング
+tfstateが更新される
 ```
+terraform apply
+
 module.eks.aws_eks_cluster.this[0]: Still creating... [8m31s elapsed]
 module.eks.aws_eks_cluster.this[0]: Still creating... [8m41s elapsed]
-module.eks.aws_eks_cluster.this[0]: Still creating... [8m51s elapsed]
-module.eks.aws_eks_cluster.this[0]: Still creating... [9m1s elapsed]
-module.eks.aws_eks_cluster.this[0]: Creation complete after 9m6s [id=system-dev-test-1shikawa]
-module.eks.data.http.wait_for_cluster[0]: Reading...
-module.eks.aws_iam_openid_connect_provider.oidc_provider[0]: Creating...
-module.eks.aws_iam_role.workers[0]: Creating...
-module.eks.data.http.wait_for_cluster[0]: Read complete after 0s [id=https://8344A446F9CC56618FD90C7E6067ACE0.gr7.ap-northeast-1.eks.amazonaws.com/healthz]
-data.aws_eks_cluster_auth.eks: Reading...
-data.aws_eks_cluster.eks: Reading...
-data.aws_eks_cluster_auth.eks: Read complete after 0s [id=system-dev-test-1shikawa]
-data.aws_eks_cluster.eks: Read complete after 1s [id=system-dev-test-1shikawa]
-module.eks.aws_iam_openid_connect_provider.oidc_provider[0]: Creation complete after 2s [id=arn:aws:iam::949993607219:oidc-provider/oidc.eks.ap-northeast-1.amazonaws.com/id/8344A446F9CC56618FD90C7E6067ACE0]
-module.eks.aws_iam_role.workers[0]: Creation complete after 2s [id=system-dev-test-1shikawa20220328092721335100000009]
-module.eks.aws_iam_role_policy_attachment.workers_AmazonEKSWorkerNodePolicy[0]: Creating...
-module.eks.aws_iam_role_policy_attachment.workers_AmazonEKS_CNI_Policy[0]: Creating...
-module.eks.aws_iam_role_policy_attachment.workers_AmazonEC2ContainerRegistryReadOnly[0]: Creating...
-module.eks.aws_iam_role_policy_attachment.workers_additional_policies[0]: Creating...
-module.eks.kubernetes_config_map.aws_auth[0]: Creating...
-module.eks.aws_iam_role_policy_attachment.workers_AmazonEKS_CNI_Policy[0]: Creation complete after 1s [id=system-dev-test-1shikawa20220328092721335100000009-2022032809272359000000000a]
-module.eks.aws_iam_role_policy_attachment.workers_AmazonEKSWorkerNodePolicy[0]: Creation complete after 1s [id=system-dev-test-1shikawa20220328092721335100000009-2022032809272360710000000b]
-module.eks.kubernetes_config_map.aws_auth[0]: Creation complete after 1s [id=kube-system/aws-auth]
-module.eks.aws_iam_role_policy_attachment.workers_AmazonEC2ContainerRegistryReadOnly[0]: Creation complete after 1s [id=system-dev-test-1shikawa20220328092721335100000009-2022032809272380460000000c]
-module.eks.module.node_groups.aws_eks_node_group.workers["provisioning"]: Creating...
-module.eks.aws_iam_role_policy_attachment.workers_additional_policies[0]: Creation complete after 1s [id=system-dev-test-1shikawa20220328092721335100000009-2022032809272382980000000d]
+〜
 module.eks.module.node_groups.aws_eks_node_group.workers["provisioning"]: Still creating... [10s elapsed]
-module.eks.module.node_groups.aws_eks_node_group.workers["provisioning"]: Still creating... [20s elapsed]
-module.eks.module.node_groups.aws_eks_node_group.workers["provisioning"]: Still creating... [30s elapsed]
-module.eks.module.node_groups.aws_eks_node_group.workers["provisioning"]: Still creating... [40s elapsed]
-module.eks.module.node_groups.aws_eks_node_group.workers["provisioning"]: Still creating... [50s elapsed]
-module.eks.module.node_groups.aws_eks_node_group.workers["provisioning"]: Still creating... [1m0s elapsed]
-module.eks.module.node_groups.aws_eks_node_group.workers["provisioning"]: Still creating... [1m10s elapsed]
-module.eks.module.node_groups.aws_eks_node_group.workers["provisioning"]: Still creating... [1m20s elapsed]
-module.eks.module.node_groups.aws_eks_node_group.workers["provisioning"]: Still creating... [1m30s elapsed]
-module.eks.module.node_groups.aws_eks_node_group.workers["provisioning"]: Still creating... [1m40s elapsed]
-module.eks.module.node_groups.aws_eks_node_group.workers["provisioning"]: Still creating... [1m50s elapsed]
-module.eks.module.node_groups.aws_eks_node_group.workers["provisioning"]: Still creating... [2m0s elapsed]
-module.eks.module.node_groups.aws_eks_node_group.workers["provisioning"]: Still creating... [2m10s elapsed]
-module.eks.module.node_groups.aws_eks_node_group.workers["provisioning"]: Still creating... [2m20s elapsed]
-module.eks.module.node_groups.aws_eks_node_group.workers["provisioning"]: Still creating... [2m30s elapsed]
-module.eks.module.node_groups.aws_eks_node_group.workers["provisioning"]: Still creating... [2m40s elapsed]
-module.eks.module.node_groups.aws_eks_node_group.workers["provisioning"]: Still creating... [2m50s elapsed]
-module.eks.module.node_groups.aws_eks_node_group.workers["provisioning"]: Creation complete after 2m54s [id=system-dev-test-1shikawa:system-dev-test-1shikawa-provisioning2022032809272418990000000e]
+[id=system-dev-test-1shikawa:system-dev-test-1shikawa-provisioning2022032809272418990000000e]
 
 Apply complete! Resources: 42 added, 0 changed, 0 destroyed.
 ```
@@ -228,7 +193,7 @@ Apply complete! Resources: 42 added, 0 changed, 0 destroyed.
 ```
 terraform-docs markdown table --output-file README.md --output-mode inject ./path/to/module
 ```
-# terraformer
+# Terraformer
 リソースからTerraformのコード+tfstateを自動で生成するツール。
 
 Terraformerを使わなくてもterraform importコマンドを使うことでリソースを取り込むことはできるが、\
@@ -237,6 +202,15 @@ Terraformerを使うことのメリットは次の通り。
 - 複数のリソースを一括で取り込める。対してterraform importは1リソースだけ。
 
 リソースをTerraformで作成するときと同様、取り込みたいリソースのprovider pluginが必要となる。
+
+### Terraformerの罠
+- デフォルトのポリシーなども読み込んでしまう
+  - タグ付けやIDでフィルタリングできるのでこれらのオプションを駆使して工夫して実際にコード化したいリソースをインポートする必要がある。
+- 使えるTerraformのバージョンが古い
+- 依存関係は解決してくれない
+  - 生成されるソースはsubnet_idやvpc_id、IAMのロール名やARNなどがハードコーディングされた状態で自動生成されてしまいます。これではTerraform側でリソース同士の依存解決がされない
+- 自動生成されたコードはそのまま使えない
+  - `terraform import`してtfstate見ながらTerraform書いた方が結果はやくて正確な作業ができる
 
 # Terragrunt
 
