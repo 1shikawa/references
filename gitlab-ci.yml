@@ -1,0 +1,357 @@
+image: docker:19.03.13
+
+services:
+  - name: docker:19.03.13-dind
+
+stages:
+  # 静的解析
+  - lint
+  # アプリケーションのビルドとテスト
+  - build
+  # コンテイメージの脆弱性検査
+  - scan
+  # コンテイメージの作成とECRへのpush
+  - push
+  # マニュフェストコードの更新
+  - update_manifest
+  - open_merge_request
+  - hadolint
+  - dockle
+  - docker_bench_for_security
+  - trivy
+  - cnb
+
+variables:
+  # mavenのダウンロード結果の格納場所を指定
+  MAVEN_OPTS: "-Dmaven.repo.local=${CI_PROJECT_DIR}/.m2/repository"
+  # TestcontainersにDockerのデーモンを使用するよう指定
+  DOCKER_HOST: "tcp://docker:2375"
+  # DockerにTLSで起動しないよう指示
+  DOCKER_TLS_CERTDIR: ""
+  # overlayfsでパフォーマンスを向上
+  DOCKER_DRIVER: overlay2
+  # タイムゾーンをJSTに指定
+  TZ: Asia/Tokyo
+
+# キャッシュの設定
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - ${CI_PROJECT_DIR}/.m2/repository
+
+lint-app:
+  stage: lint
+  before_script:
+    - cd /builds/mailpaas/mailpaas/src
+    - chmod +x mvnw
+  image:
+    name: openjdk:11
+    entrypoint: [""]
+  script:
+    # 後続のジョブでテストを実行するため、ここではテストを実行しない
+    - ./mvnw install -DskipTests=true
+    # checkstyleの実行
+    - ./mvnw checkstyle:check
+    - cp -r $CI_PROJECT_DIR/src/mailpaas-domain/target $CI_PROJECT_DIR/target_doamin
+    - cp -r $CI_PROJECT_DIR/src/mailpaas-web/target $CI_PROJECT_DIR/target_web
+    # spotbugsの実行
+    - ./mvnw spotbugs:check
+    - cp  $CI_PROJECT_DIR/src/mailpaas-domain/target/spotbugs.xml $CI_PROJECT_DIR/target_doamin
+    - cp  $CI_PROJECT_DIR/src/mailpaas-web/target/spotbugs.xml $CI_PROJECT_DIR/target_web
+    # ビルドファイルがあるディレクトリに移動
+    - cd $CI_PROJECT_DI
+  artifacts:
+    paths:
+      # checkstyleの実行結果
+      - target_doamin/checkstyle-result.xml
+      - target_web/checkstyle-result.xml
+      # spotbugsの実行結果
+      - target_doamin/spotbugs.xml
+      - target_web/spotbugs.xml
+  rules:
+    # ステージング：開発
+    # マージリクエストのソースブランチ名が「feature」で始まっていて、かつマージリクエストのターゲットブランチが「develop」の場合
+    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^feature/ && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
+    # ステージング：本番
+    # マージリクエストのソースブランチ名が「develop」で始まっていて、かつマージリクエストのターゲットブランチが「master」の場合
+    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == "develop" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+
+build-and-test-app:
+  stage: build
+  before_script:
+    - cd /builds/mailpaas/mailpaas/src
+    - chmod +x mvnw
+  image:
+    name: openjdk:11
+    entrypoint: [""]
+  script:
+    # ビルド、テスト実行
+    - ./mvnw package -Dquarkus.package.type=legacy-jar
+    # artifactsのパスは、$CI_PROJECT_DIR の子である必要があるので、$CI_PROJECT_DIR 内にビルドファイルをコピー
+    - cp -r /$CI_PROJECT_DIR/src/mailpaas-web/target $CI_PROJECT_DIR
+    # ビルドファイルがあるディレクトリに移動
+    - cd $CI_PROJECT_DIR
+  artifacts:
+    paths:
+      - target/lib/
+      - target/mailpaas-web-1.0.0-SNAPSHOT-runner.jar
+  rules:
+    # ステージング：開発
+    # マージリクエストのソースブランチ名が「feature」で始まっていて、かつマージリクエストのターゲットブランチが「develop」の場合
+    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^feature/ && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
+    # ステージング：本番
+    # マージリクエストのソースブランチ名が「develop」で始まっていて、かつマージリクエストのターゲットブランチが「master」の場合
+    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == "develop" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+
+.container_scanning:
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  stage: scan
+  before_script:
+    - export TRIVY_VERSION=$(wget -qO - "https://api.github.com/repos/aquasecurity/trivy/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
+    - echo $TRIVY_VERSION
+    - wget --no-verbose https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz -O - | tar -zxvf -
+  script:
+    - |
+      cat > /kaniko/.docker/config.json <<EOF
+      {
+        "credsStore": "ecr-login"
+      }
+      EOF
+    - echo ${CI_PROJECT_DIR}
+    - |
+      /kaniko/executor \
+        --registry-mirror="mirror.gcr.io" \
+        --context ${CI_PROJECT_DIR} \
+        --dockerfile $CI_PROJECT_DIR/src/mailpaas-web/src/main/docker/Dockerfile.legacy-jar \
+        --tarPath $CI_PROJECT_DIR/image.tar \
+        --no-push \
+        --destination image
+    # コンテナイメージをスキャン
+    # 規定レベル(High以上)を超えた場合、ジョブを失敗させる
+    - ./trivy image --exit-code 1 --no-progress --severity HIGH,CRITICAL --input $CI_PROJECT_DIR/image.tar
+    # レポートを作成したい場合、以下を実行する
+    # 脆弱性の原因を特定する際に利用する
+    # - ./trivy image --exit-code 0 --cache-dir .trivycache/ --format template --template "@contrib/html.tpl" -o gl-container-scanning-report.html --no-progress --input $CI_PROJECT_DIR/image.tar
+  #   artifacts:
+  # paths:
+  #   - gl-container-scanning-report.html
+  rules:
+    # ステージング：開発
+    # マージリクエストのソースブランチ名が「feature」で始まっていて、かつマージリクエストのターゲットブランチが「develop」の場合
+    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^feature/ && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
+    # ステージング：本番
+    # マージリクエストのソースブランチ名が「develop」で始まっていて、かつマージリクエストのターゲットブランチが「master」の場合
+    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == "develop" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+
+build_image_with_kaniko:
+  stage: push
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  variables:
+    ECR_HOST: 949993607219.dkr.ecr.ap-northeast-1.amazonaws.com/mailpaas
+    IMAGE_NAME: mailpaas
+  script:
+    - |
+      cat > /kaniko/.docker/config.json <<EOF
+      {
+        "credsStore": "ecr-login"
+      }
+      EOF
+    - echo ${CI_PROJECT_DIR}
+    - |
+      /kaniko/executor \
+        --registry-mirror="mirror.gcr.io" \
+        --context ${CI_PROJECT_DIR} \
+        --dockerfile $CI_PROJECT_DIR/src/mailpaas-web/src/main/docker/Dockerfile.legacy-jar \
+        --destination ${ECR_HOST}/${IMAGE_NAME}:${CI_COMMIT_SHA}
+  rules:
+    # ステージング：開発
+    # マージリクエストのソースブランチ名が「feature」で始まっていて、かつマージリクエストのターゲットブランチが「develop」の場合
+    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^feature/ && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
+    # ステージング：本番
+    # マージリクエストのソースブランチ名が「develop」で始まっていて、かつマージリクエストのターゲットブランチが「master」の場合
+    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == "develop" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+
+update_manifest_for_develop:
+  stage: update_manifest
+  image: mikefarah/yq:3.3.4
+  variables:
+    ECR_HOST: 949993607219.dkr.ecr.ap-northeast-1.amazonaws.com/mailpaas
+    IMAGE_NAME: mailpaas
+    GIT_STRATEGY: none
+    CD_GIT_REPOSITORY: https://oauth2:${PERSONAL_ACCESS_TOKEN}@gitlab.opencanvasatelier.com/mailpaas/infrastructure/aws/kubernetes/kustomize.git # manifest repo
+    CD_MANIFEST_REPO: kustomize/mailpaas/overlays/dev # manifest dir
+    CD_MANIFEST_FILE: kustomization.yaml # image tag書き換え対象のmanifestファイル名
+  retry: 2
+  script:
+    - apk add --no-cache git
+    - git config --global user.name ${CI_PROJECT_NAME}
+    - git config --global user.email ${CI_PROJECT_NAME}"@gitlab.com"
+    - git clone --single-branch --branch master ${CD_GIT_REPOSITORY}
+    - cd ${CD_MANIFEST_REPO}
+    - yq write -i ${CD_MANIFEST_FILE} images[0].newTag ${CI_COMMIT_SHA}
+    - cat $CD_MANIFEST_FILE
+    - git commit -am "Update image tag" && git push origin master
+  rules:
+    # ステージング：開発
+    # マージリクエストのソースブランチ名が「feature」で始まっていて、かつマージリクエストのターゲットブランチが「develop」の場合
+    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^feature/ && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
+
+update_manifest_for_prod:
+  stage: update_manifest
+  image: mikefarah/yq:3.3.4
+  variables:
+    ECR_HOST: 949993607219.dkr.ecr.ap-northeast-1.amazonaws.com/mailpaas
+    IMAGE_NAME: mailpaas
+    GIT_STRATEGY: none
+    CD_GIT_REPOSITORY: https://oauth2:${PERSONAL_ACCESS_TOKEN}@gitlab.opencanvasatelier.com/mailpaas/infrastructure/aws/kubernetes/kustomize.git # manifest repo
+    CD_MANIFEST_REPO: kustomize/mailpaas/overlays/prod # manifest dir
+    CD_MANIFEST_FILE: kustomization.yaml # image tag書き換え対象のmanifestファイル名
+    BRANCH_NAME: ${CI_PROJECT_NAME}/Pipeline#${CI_PIPELINE_ID}
+  retry: 2
+  script:
+    - apk add --no-cache git
+    - git config --global user.name ${CI_PROJECT_NAME}
+    - git config --global user.email ${CI_PROJECT_NAME}"@gitlab.com"
+    - git clone --single-branch --branch master ${CD_GIT_REPOSITORY}
+    - cd ${CD_MANIFEST_REPO}
+    - git checkout -b ${BRANCH_NAME}
+    - yq write -i ${CD_MANIFEST_FILE} images[0].newTag ${CI_COMMIT_SHA}
+    - cat $CD_MANIFEST_FILE
+    - git commit -am "Update image tag" && git push origin ${BRANCH_NAME}
+  rules:
+    # ステージング：本番
+    # マージリクエストのソースブランチ名が「develop」で始まっていて、かつマージリクエストのターゲットブランチが「master」の場合
+    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == "develop" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+
+open_merge_request:
+  stage: open_merge_request
+  image: registry.gitlab.com/gitlab-automation-toolkit/gitlab-auto-mr
+  variables:
+    GIT_STRATEGY: none
+    BRANCH_NAME: ${CI_PROJECT_NAME}/Pipeline#${CI_PIPELINE_ID}
+    CD_PROJECT_ID: 181 # manifestレポジトリID(GitLabのプロジェクトID)
+  script:
+    - |
+      gitlab_auto_mr \
+      --private-token ${PERSONAL_ACCESS_TOKEN} \
+      --source-branch ${BRANCH_NAME} \
+      --project-id ${CD_PROJECT_ID} \
+      --target-branch master \
+      --commit-prefix WIP \
+      --remove-branch \
+      --squash-commits \
+      --title "Update image tag by ${BRANCH_NAME}"
+  rules:
+    # ステージング：本番
+    # マージリクエストのソースブランチ名が「develop」で始まっていて、かつマージリクエストのターゲットブランチが「master」の場合
+    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == "develop" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+dockle:
+  stage: dockle
+  before_script:
+    - apk -Uuv add bash git curl tar sed grep
+  script:
+    - docker build -t ${IMAGE_NAME}:${CI_COMMIT_SHA} -f ./src/mailpaas-domain/src/main/docker/Dockerfile.legacy-jar .
+    - |
+      VERSION=$(
+      curl --silent "https://api.github.com/repos/goodwithtech/dockle/releases/latest" | \
+      grep '"tag_name":' | \
+      sed -E 's/.*"v([^"]+)".*/\1/' \
+      ) && docker run --rm -v /var/run/docker.sock:/var/run/docker.sock   goodwithtech/dockle:v${VERSION} ${IMAGE_NAME}:${CI_COMMIT_SHA}
+  allow_failure: true
+  variables:
+    IMAGE_NAME: image-for-scan
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_TLS_CERTDIR: ""
+    PERSONAL_ACCESS_TOKEN: ${PERSONAL_ACCESS_TOKEN}
+  rules:
+    # ステージング：開発
+    # マージリクエストのソースブランチ名が「feature」で始まっていて、かつマージリクエストのターゲットブランチが「develop」の場合
+    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^feature/ && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
+    # ステージング：本番
+    # マージリクエストのソースブランチ名が「develop」で始まっていて、かつマージリクエストのターゲットブランチが「master」の場合
+    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == "develop" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+trivy:
+  stage: trivy
+  script:
+    - docker build -t ${IMAGE_NAME}:${CI_COMMIT_SHA} -f ./src/mailpaas-domain/src/main/docker/Dockerfile.legacy-jar .
+    - |
+      docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image \
+        --exit-code 0 --severity HIGH,CRITICAL --timeout=30m \
+        ${IMAGE_NAME}:${CI_COMMIT_SHA}
+  allow_failure: true
+  variables:
+    IMAGE_NAME: image-for-scan
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_TLS_CERTDIR: ""
+    PERSONAL_ACCESS_TOKEN: ${PERSONAL_ACCESS_TOKEN}
+  rules:
+    # ステージング：開発
+    # マージリクエストのソースブランチ名が「feature」で始まっていて、かつマージリクエストのターゲットブランチが「develop」の場合
+    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^feature/ && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
+    # ステージング：本番
+    # マージリクエストのソースブランチ名が「develop」で始まっていて、かつマージリクエストのターゲットブランチが「master」の場合
+    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == "develop" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+docker_bench_for_security:
+  stage: docker_bench_for_security
+  image: docker:stable
+  variables:
+    MINIMUM_SCORE: -10
+    FAIL_LEVEL: "WARN"
+    ALL_LEVELS: "PASS,NOTE,INFO,WARN"
+  script:
+    - docker build -t ${IMAGE_NAME}:${CI_COMMIT_SHA} -f ./src/mailpaas-domain/src/main/docker/Dockerfile.legacy-jar .
+    - docker run --rm --net host --pid host --userns host --cap-add audit_control -e DOCKER_CONTENT_TRUST=$DOCKER_CONTENT_TRUST -v /var/lib:/var/lib -v /var/run/docker.sock:/var/run/docker.sock -v /usr/lib/systemd:/usr/lib/systemd -v /etc:/etc --label docker_bench_security docker/docker-bench-security -c container_images -i ${IMAGE_NAME}:${CI_COMMIT_SHA} 
+      #    - ALLOWED_LEVELS=$(echo $ALL_LEVELS | sed "s/,\?$FAIL_LEVEL.*//")
+    - DISALLOWED_LEVELS=$(echo $ALL_LEVELS | sed "s/^\(.*\),\?\($FAIL_LEVEL.*\)/\2/")
+    - |
+      for bad_level in $(echo $DISALLOWED_LEVELS | sed 's/,/ /g'); do
+        if grep -q "[${bad_level}]" /tmp/bench-output.log; then
+          echo "Issue of level ${FAIL_LEVEL} or higher found" >&2
+          exit 1
+        fi
+      done
+  allow_failure: true
+  variables:
+    IMAGE_NAME: image-for-scan
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_TLS_CERTDIR: ""
+    PERSONAL_ACCESS_TOKEN: ${PERSONAL_ACCESS_TOKEN}
+  rules:
+    # ステージング：開発
+    # マージリクエストのソースブランチ名が「feature」で始まっていて、かつマージリクエストのターゲットブランチが「develop」の場合
+    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^feature/ && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
+    # ステージング：本番
+    # マージリクエストのソースブランチ名が「develop」で始まっていて、かつマージリクエストのターゲットブランチが「master」の場合
+    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == "develop" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+hadolint:
+  stage: hadolint
+  image: hadolint/hadolint:latest-debian
+  script:
+    - hadolint --failure-threshold warning ./src/mailpaas-domain/src/main/docker/Dockerfile.legacy-jar
+  allow_failure: true
+  rules:
+    # ステージング：開発
+    # マージリクエストのソースブランチ名が「feature」で始まっていて、かつマージリクエストのターゲットブランチが「develop」の場合
+    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^feature/ && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
+    # ステージング：本番
+    # マージリクエストのソースブランチ名が「develop」で始まっていて、かつマージリクエストのターゲットブランチが「master」の場合
+    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == "develop" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+
+cnb:
+  stage: cnb
+  image: paketobuildpacks/builder:full
+  script:
+    -  /cnb/lifecycle/creator -app=./src 949993607219.dkr.ecr.ap-northeast-1.amazonaws.com/mailpaas-ecr-cnb
+  allow_failure: true
+  rules:
+    # ステージング：開発
+    # マージリクエストのソースブランチ名が「feature」で始まっていて、かつマージリクエストのターゲットブランチが「develop」の場合
+    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^feature/ && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
+    # ステージング：本番
+    # マージリクエストのソースブランチ名が「develop」で始まっていて、かつマージリクエストのターゲットブランチが「master」の場合
+    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == "develop" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+

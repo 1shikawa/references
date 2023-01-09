@@ -10,8 +10,6 @@ else
   . /usr/local/opt/asdf/libexec/asdf.sh
 fi
 
-eval "$(starship init zsh)"
-
 bindkey -v
 autoload -U compinit
 compinit -u
@@ -22,11 +20,13 @@ export SAVEHIST=100000
 setopt extended_history
 
 alias cls="clear"
+# alias ls='exa -hGF --icons'
+alias ls='exa -h --icons --git'
+# alias lt='exa -h -T -L 3 -a -I "node_modules|.git|.cache" --icons'
+alias lt='exa -h -T -L 3 -a -I "node_modules|.git|.cache" -l --icons --git'
 alias lsa="ls -la"
-# alias be='bundle exec'
-# alias get_idf='. $HOME/esp/esp-idf/export.sh'
-# alias arm64e='arch -arm64e zsh'
-# alias x86_64='arch -x86_64 zsh'
+alias cat='bat -p'
+alias tf='terraform'
 
 # kubernetes
 alias k="kubectl"
@@ -67,10 +67,6 @@ bindkey '^b' anyframe-widget-checkout-git-branch
 bindkey '^g' anyframe-widget-cd-ghq-repository
 bindkey '^k' anyframe-widget-kill
 
-##### kube-ps1 #####
-source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
-PROMPT='$(kube_ps1)'$PROMPT
-
 source <(kubectl completion zsh)
 
 ###### AWS MFA SESSION TOKEN #####
@@ -93,3 +89,68 @@ release-awssession-token() {
     export -n AWS_SECRET_ACCESS_KEY
     export -n AWS_SESSION_TOKEN
 }
+###################################
+
+###### AWS MFA SESSION TOKEN 2 ######
+function _aws_get_session_token() {
+    local PROFILE_NAME=$1
+    local MFA_TOKEN_CODE=$2
+    local DURATION_SECONDS=43200
+
+    # プロファイル, mfa
+    if [ $# -ne 2 ]; then
+        echo "引数が足りません"
+        return 1
+    fi
+
+    local TARGET_AWS_ACCOUNT_ID=$(aws sts get-caller-identity \
+        --query 'Account' \
+        --output text \
+        --profile $PROFILE_NAME \
+        )
+
+    local SERIAL_NUMBER=$(aws sts get-caller-identity \
+        --query 'Arn' \
+        --output text \
+        --profile $PROFILE_NAME \
+        | sed -e s/:user/:mfa/g
+        )
+
+    local SESSION_TOKEN=$(aws sts get-session-token \
+        --duration-seconds ${DURATION_SECONDS} \
+        --serial-number $SERIAL_NUMBER \
+        --token-code $MFA_TOKEN_CODE \
+        --profile $PROFILE_NAME \
+        )
+
+    echo "${TARGET_AWS_ACCOUNT_ID} MFA Authentication Success. (${SERIAL_NUMBER})"
+
+    _unset_aws_session_token
+
+    export AWS_ACCESS_KEY_ID=$(echo $SESSION_TOKEN | jq -r .Credentials.AccessKeyId)
+    export AWS_SECRET_ACCESS_KEY=$(echo $SESSION_TOKEN | jq -r .Credentials.SecretAccessKey)
+    export AWS_SESSION_TOKEN=$(echo $SESSION_TOKEN | jq -r .Credentials.SessionToken)
+}
+
+function _unset_aws_session_token() {
+    unset AWS_ACCESS_KEY_ID
+    unset AWS_SECRET_ACCESS_KEY
+    unset AWS_SESSION_TOKEN
+}
+
+# エイリアスコマンド
+alias mfa_session_token="_aws_get_session_token oca-aws"
+
+##############################################
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /Users/ishikawa/.asdf_x86/installs/terraform/1.1.7/bin/terraform terraform
+source ~/enhancd/init.sh
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+eval "$(starship init zsh)"
+
+##### kube-ps1 #####
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+PROMPT='$(kube_ps1)'$PROMPT

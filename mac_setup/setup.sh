@@ -77,4 +77,3 @@ brew install exa
 brew install bat
 brew install infracost # for terraform
 brew install terraformer # for terraform
-

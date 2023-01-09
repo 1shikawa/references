@@ -53,6 +53,8 @@ https://blog.usize-tech.com/sts-temp-credential-by-oneliner/
 # S3オブジェクトの中身を見るコマンド
 `aws s3 cp s3://ci-cd-test-bucket-averf/tmp/terraform.tfstate -`
 
+# EC2スポットを利用するうえでのベストプラクティス
+[EC2スポットを利用するうえでのベストプラクティス](https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/spot-best-practices.html)
 # VPC間通信の方法
 ## Transit Gateway
 [Transit Gatewayを利用してVPC間で通信してみた](https://dev.classmethod.jp/articles/transit-gateway-vpc/#toc-10)
