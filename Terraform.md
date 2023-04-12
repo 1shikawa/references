@@ -1,3 +1,12 @@
+# IaCのメリット
+- 手順書の維持管理が不要になる
+- オペレーションミスのリスクを大幅に減らせる
+- 属人性を減らせる
+- GitHub上で複数人で変更をレビューできる
+- インフラのセキュリティリスクをコードの段階で検証できるようになる
+- 同様な構成環境を複数構築することが容易になる
+
+
 # Current state と Desired state
 - 望むべきインフラの状態を定義：`main.tf`
 - 現在のインフラの状態を管理：`terraform.tfstate`
@@ -34,6 +43,27 @@ aws s3api put-public-access-block --bucket mailpaas-dev-remote-tfstate \
   "IgnorePublicAcls":true,
   "BlockPublicPolicy":true,
   "RestrictPublicBuckets":true
+}'
+
+# ライフサイクルルール設定
+aws s3api put-bucket-lifecycle-configuration --bucket nextgen-master-management-dev-remote-tfstate --lifecycle-configuration \
+'{
+    "Rules": [
+        {
+            "Expiration": {
+                "Days": 180
+            },
+            "ID": "Bucket-Rules for deletion after 180 days",
+            "Filter": {},
+            "Status": "Enabled",
+            "NoncurrentVersionExpiration": {
+                "NoncurrentDays": 1
+            },
+            "AbortIncompleteMultipartUpload": {
+                "DaysAfterInitiation": 7
+            }
+        }
+    ]
 }'
 ```
 
@@ -187,6 +217,30 @@ module.eks.module.node_groups.aws_eks_node_group.workers["provisioning"]: Still 
 
 Apply complete! Resources: 42 added, 0 changed, 0 destroyed.
 ```
+
+# 特定リソースのみ適用
+```
+terraform apply -target aws_s3_bucket.local_staging_bucket
+```
+## tftarget
+複数のメンバーが開発を行う際、各メンバーが定義したリソースを破壊することなく、安全に運用できるようになります。
+[tftarget:Terraformターゲットを選択的に実行するためのGo製CLIツール](https://future-architect.github.io/articles/20230329a/)
+
+
+# コーディング規約
+## 値のハードコードをためらわない
+値をハードコードするのは悪だと、プログラマーは教わってきたと思います。私もそうですし、普通のコードを書くときはハードコードを避けています。
+しかし今回のTerraformでは、状況によってはハードコードするようにしました。
+具体的には、以下の条件をすべて満たす場合です。
+
+- 環境ごとで値が変わらない
+- 普段の運用で変更する可能性が（ほぼ）ない
+- 他のプロダクトで使うときでも変更しない可能性が高い
+
+## ECSのタスク定義の扱い
+ECSのタスク定義をTerrafromとアプリケーションのどちらで管理するか、という部分はいまだに悩んでいます。コンテナインスタンスの管理という点では、Terraformで扱うのが普通のような気がします。しかしアプリケーションの動作を変えるため、よく変更するものでもあるので、そのたびにapplyするのは、あまり合理的ではないようにも感じます。
+
+今はすべてTerraformで管理するようにしていますが、頻繁に変更する部分だけはアプリケーションで管理し、全体のベースとなるものはTerraformで管理する、というのを試してみようと思っています。ただ、それがベストかどうかは自信が持てないので、この先も試行錯誤が続くでしょう。
 
 # ドキュメント生成
 モジュールの入力変数、出力変数定義をまとめたドキュメントを自動生成する。

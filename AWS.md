@@ -64,6 +64,8 @@ https://blog.usize-tech.com/sts-temp-credential-by-oneliner/
 [【AWS Transit Gateway】複数VPCのアウトバウンド通信を集約する環境を作る](https://dev.classmethod.jp/articles/tgw-outbound-aggregation-2022/)
 
 ## VPC Peering
+[VPCピアリングを使って別アカウントにあるVPC内のRDSに接続できるようにする設定](https://dev.classmethod.jp/articles/vpc-peering-to-connect-to-vpc-rds-on-another-account/)
+![Alt text](https://d1tlzifd8jdoy4.cloudfront.net/wp-content/uploads/2023/02/VPC_Peering_20230201-640x274.png)
 
 ## VPC Endpoint
 VPC内のリソースとVPC外のAWSリソース等をプライベート通信で連携したい場合に利用する
@@ -141,3 +143,16 @@ NewsPicksでは、コストの観点からECS on EC2でサービスを運用し�
 
 ### RDS と Aurora どっちを使うかフロー
 ![RDS と Aurora どっちを使うかフロー](https://res.cloudinary.com/zenn/image/fetch/s--ty2eUSve--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_1200/https%3A//storage.googleapis.com/zenn-user-upload/deployed-images/a8d28bcb4af836dbe5f4e9e0.png%3Fsha%3D8ca9be5668e677cf7a03a41d30ac8083faf08b57)
+
+# ALB vs NLB
+| 項目           | NLB(L4LB)                           | ALB(L7LB)                        |
+| :------------- | :---------------------------------- | :------------------------------- |
+| 処理する階層   | トランスポート層 (ネットワーク層？) | アプリケーション層               |
+| 振り分け方法   | ポートと IP アドレス                | URL、Cookie、HTTP ヘッダー       |
+| 処理内容       | 単純な負荷分散                      | 高度な負荷分散やセキュリティ機能 |
+| コスト         | 低い                                | 高い                             |
+| 対応プロトコル | TCP/UDP など                        | HTTP, HTTPS                      |
+| 古の呼び名     | L4 スイッチ                         | L7 スイッチ                      |
+
+# S3 ストレージクラス選択チャート
+![Alt text](https://d1tlzifd8jdoy4.cloudfront.net/wp-content/uploads/2023/04/emiki-s3storageclass-4.jpg)

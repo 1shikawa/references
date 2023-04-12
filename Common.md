@@ -40,6 +40,7 @@ SPを起点とした認証の流れ。
 IdPを起点とした認証の流れ。 \
 https://qiita.com/taka-k/items/785d1be8725f76f3bad9
 
+[SAML認証の仕組みと認証フロー](https://tech-blog.rakus.co.jp/entry/20230301/saml)
 
 ## Open ID Connect (OIDC)
 OIDCは、OAuth 2.0フレームワークの上に構築されています。\

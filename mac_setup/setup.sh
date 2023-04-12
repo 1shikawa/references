@@ -70,10 +70,16 @@ brew install openssh
 brew install gh
 brew install jquery
 brew install kube-ps1
-brew install krew
 brew install graphviz
-brew install fzy ccat percol fzf # enhancd
-brew install exa
-brew install bat
+brew install zplug
+brew install fzy ccat percol fzf # for enhancd
+brew install exa # for rich ls
+brew install bat # for rich cat
 brew install infracost # for terraform
 brew install terraformer # for terraform
+brew install hidetatz/tap/kubecolor # for kubectl
+brew install future-architect/tap/tftarget # for Terraform -target
+
+
+# https://krew.sigs.k8s.io/docs/user-guide/setup/install/
+# brew install krew # for kubectl pkg manager

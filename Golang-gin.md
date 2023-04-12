@@ -246,3 +246,6 @@ func main() {
 	fmt.Printf("%+v\n", posts)
 }
 ```
+
+# 並行処理
+[Go の goroutine / channel は全然簡単じゃないので errgroup を使おう](https://eihigh.hatenablog.com/entry/2023/04/08/220538)
