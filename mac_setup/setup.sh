@@ -1,11 +1,11 @@
 # HomeBrewのインストール
-if [ ! -x "`which brew`" ]; then
+if [ ! -x "$(which brew)" ]; then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew update
 fi
 
 # mas-cliのインストール
-if [ ! -x "`which mas`" ]; then
+if [ ! -x "$(which mas)" ]; then
   brew install mas
 fi
 
@@ -21,30 +21,34 @@ mas install 405399194  # Kindle
 mas install 1429033973 # RunCat
 
 brew install google-japanese-ime --cask
-brew install google-chrome       --cask
-# brew install firefox             --cask
-brew install dropbox             --cask
-# brew install skype               --cask
-brew install cheatsheet          --cask
-brew install visual-studio-code  --cask
-brew install docker              --cask
-brew install iterm2              --cask
-brew install macdown             --cask
-brew install authy               --cask
-brew install notable             --cask
-brew install postico             --cask
-brew install arduino             --cask
-# brew install sequel-pro          --cask
-brew install brooklyn            --cask
-brew install insomnia            --cask
-# brew install discord             --cask
-brew install wireshark           --cask
-brew install toggl-track         --cask
-brew install lens                --cask
-# brew install clipy               --cask
-brew install warp                --cask # ternimal
-brew install raycast             --cask # rancher
-brew install tableplus           --cask # sql client
+brew install google-chrome --cask
+# brew install firefox --cask
+# brew install dropbox --cask
+# brew install skype --cask
+brew install cheatsheet --cask
+brew install visual-studio-code --cask
+brew install docker --cask
+brew install iterm2 --cask
+brew install macdown --cask
+brew install authy --cask
+brew install notable --cask
+brew install postico --cask
+brew install arduino --cask
+# brew install sequel-pro --cask
+brew install brooklyn --cask
+brew install insomnia --cask
+# brew install discord --cask
+brew install wireshark --cask
+brew install toggl-track --cask
+brew install lens --cask # manage k8s
+# brew install clipy --cask
+brew install warp --cask      # ternimal
+brew install raycast --cask   # rancher
+brew install tableplus --cask # sql client
+brew install arc --cask       # cronium browser
+brew install applite --cask   # manage homebrew cask app
+brew install orbstack --cask  # for Docker desktop replacement
+brew install cursor --cask    # AI editor
 
 brew tap aws/tap
 brew tap jhawthorn/fzy # enhancd
@@ -72,14 +76,16 @@ brew install jquery
 brew install kube-ps1
 brew install graphviz
 brew install zplug
-brew install fzy ccat percol fzf # for enhancd
-brew install exa # for rich ls
-brew install bat # for rich cat
-brew install infracost # for terraform
-brew install terraformer # for terraform
-brew install hidetatz/tap/kubecolor # for kubectl
+brew install fzy ccat percol fzf           # for enhancd
+brew install exa                           # for rich ls
+brew install bat                           # for rich cat
+brew install infracost                     # for terraform
+brew install terraformer                   # for terraform
+brew install hidetatz/tap/kubecolor        # for kubectl
 brew install future-architect/tap/tftarget # for Terraform -target
-
+brew install ecsgo                         # for AWS ECS
+bure install eks-node-viewer               # for AWS EKS
+brew install localstack/tap/localstack-cli # for AWS localstack
 
 # https://krew.sigs.k8s.io/docs/user-guide/setup/install/
 # brew install krew # for kubectl pkg manager
