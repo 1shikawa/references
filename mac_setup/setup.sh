@@ -19,9 +19,11 @@ mas install 414855915  # WinArchiver Lite
 mas install 1407015686 # Paste Plain Text
 mas install 405399194  # Kindle
 mas install 1429033973 # RunCat
+mas install 1333542190 # 1Password 7
+mas install 1339170533 # CleanMyMac X
 
 brew install google-japanese-ime --cask
-brew install google-chrome --cask
+# brew install google-chrome --cask
 # brew install firefox --cask
 # brew install dropbox --cask
 # brew install skype --cask
@@ -42,13 +44,17 @@ brew install wireshark --cask
 brew install toggl-track --cask
 brew install lens --cask # manage k8s
 # brew install clipy --cask
-brew install warp --cask      # ternimal
-brew install raycast --cask   # rancher
-brew install tableplus --cask # sql client
-brew install arc --cask       # cronium browser
-brew install applite --cask   # manage homebrew cask app
-brew install orbstack --cask  # for Docker desktop replacement
-brew install cursor --cask    # AI editor
+brew install warp --cask    # ternimal
+brew install raycast --cask # rancher
+# brew install tableplus --cask # db client
+# brew install arc --cask       # cronium browser
+brew install applite --cask  # manage homebrew cask app
+brew install orbstack --cask # for Docker desktop replacement
+# brew install cursor --cask    # AI editor
+# /Applications/Visual Studio Code.app/Contents/Resources/app/bin/code - > /Applications/Cursor.app/Contents/Resources/app/bin/code
+brew install keyclu --cask     # shortcuts cheet sheet
+brew install sequel-ace --cask # db client
+brew install sidekick --cask   # sidekick
 
 brew tap aws/tap
 brew tap jhawthorn/fzy # enhancd
