@@ -89,7 +89,8 @@ brew install infracost                     # for terraform
 brew install terraformer                   # for terraform
 brew install hidetatz/tap/kubecolor        # for kubectl
 brew install future-architect/tap/tftarget # for Terraform -target
-brew install ecsgo                         # for AWS ECS
+brew install ecsgo                         # for AWS ECS terminal
+brew install keidarcy/tap/e1s              # for AWS ECS k9s like terminal
 bure install eks-node-viewer               # for AWS EKS
 brew install localstack/tap/localstack-cli # for AWS localstack
 
