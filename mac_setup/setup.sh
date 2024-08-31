@@ -60,7 +60,8 @@ brew tap aws/tap
 brew tap jhawthorn/fzy # enhancd
 brew install git
 brew install wget
-brew install asdf
+# brew install asdf
+brew install mise
 brew install nvm
 brew install postgresql
 brew install mysql
