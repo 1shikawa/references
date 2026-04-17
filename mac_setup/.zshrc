@@ -231,7 +231,7 @@ alias mfa_session_token="_aws_get_session_token oca-aws"
 # END_AWS_SSO_CLI
 
 # GitHub mcp server
-export GITHUB_PERSONAL_ACCESS_TOKEN="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"
+export GITHUB_PERSONAL_ACCESS_TOKEN="ghp_xxxxxxxxxx"
 
 # https://github.com/yukukotani/mcp-gemini-google-search
 # Vertex AI for gemini mcp server
@@ -241,7 +241,7 @@ export VERTEX_LOCATION="us-central1"  # Optional (default: us-central1)
 export GEMINI_MODEL="gemini-2.5-flash"  # Optional (default: gemini-2.5-flash)
 
 # Pal mcp server
-export GEMINI_API_KEY="AIzaSyDyAxMqCz_irpSLeCcLNEEk93bQcz69pZU"
+export GEMINI_API_KEY="xxxxxxxxxxxxx"
 
 
 # Added by CodeRabbit CLI installer
