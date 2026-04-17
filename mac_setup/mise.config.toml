@@ -1,0 +1,113 @@
+[settings]
+legacy_version_file = false
+experimental = true
+# disable_backends = ["asdf", "vfox"]
+
+[tools]
+gcloud = "latest"
+terraform = "1.12.2"
+terragrunt = "0.84.0"
+kubectl = "latest"
+tfnotify = "latest"
+hadolint = "latest"
+golang = "latest"
+jq = "latest"
+go = "latest"
+driftctl = "latest"
+pre-commit = "latest"
+skaffold = "latest"
+node = "20.19.4"
+"npm:serverless" = "v3"
+"npm:aws-cdk" = "latest"
+"npm:cdktf-cli" = "latest"
+"npm:@google/gemini-cli" = "latest"
+"npm:yarn" = "1.22.22"
+awscli = { version = "2.33.27", symlink_bins = "true" }
+k9s = "latest"
+stern = "latest"
+kubectx = "latest"
+helm = "latest"
+krew = "latest"
+yq = "latest"
+# [Python]
+python = "3.13"
+uv = "0.9.26"
+"pipx:cfn-lint" = "latest"
+"pipx:git-remote-codecommit" = "latest"
+"pipx:snowflake-cli" = "latest"
+yt-dlp = "latest"
+rust = "latest"
+ripgrep = "latest"
+gh = "latest"
+"go:github.com/syou6162/ccstatusline" = "latest"
+yarn = "latest"
+"npm:@byterover/cipher" = "latest"
+"go:golang.org/x/tools/gopls" = "latest"
+helmfile = "latest"
+argocd = "latest"
+"pipx:tftui" = "latest"
+ghq = "latest"
+peco = "latest"
+starship = "latest"
+grpcurl = "latest"
+"npm:@openai/codex" = "latest"
+"npm:task-master-ai" = "latest"
+lazygit = "latest"
+claude = { version = "latest", bin = "claude", platforms = """
+[linux-arm64]
+url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/{version}/linux-arm64/claude"
+
+[linux-x64]
+url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/{version}/linux-x64/claude"
+
+[macos-arm64]
+url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/{version}/darwin-arm64/claude"
+
+[macos-x64]
+url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/{version}/darwin-x64/claude"
+""", version_list_url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/stable" }
+1password-cli = "latest"
+"go:github.com/d-kuro/gwq/cmd/gwq" = "latest"
+dive = "latest"
+actionlint = "latest"
+"go:github.com/GoogleCloudPlatform/gke-mcp" = "latest"
+gum = "latest"
+fzf = "latest"
+"cargo:tfmcp" = "latest"
+coreutils = "latest"
+eza = "latest"
+bat = "latest"
+fd = "latest"
+gitui = "latest"
+sops = "latest"
+zoxide = "latest"
+bun = "latest"
+"npm:ccmanager" = "latest"
+"npm:@aikidosec/safe-chain" = "latest"
+
+
+[tasks.aws-sso-login-logiDev]
+alias = "al"
+description = "SSOでログインして、現在のセッションに認証情報を設定する"
+run = "aws-sso-profile LogiDev:AWSAdministratorAccess"
+
+[tasks.dangerous-task]
+confirm = "全部消えます。本当に実行するんですか？"
+description = "危ないやつ。"
+run = "echo 'うそぴょーん'"
+
+[tasks.gcp-config-switch]
+alias = "gconf"
+description = "GCPプロジェクトの切替え"
+run = "sh ~/.config/mise/gconf.sh"
+
+[tasks.explain-commits-with-summary]
+alias = "ex"
+description = "カレントブランチでの変更内容"
+run = "sh ~/.claude/hooks/explain-commits-with-summary.sh"
+
+[tasks.aws-sso-export]
+alias = "aws-sso"
+description = "AWS SSOで認証し、一時認証情報を環境変数にエクスポートする"
+run = "source ~/.config/mise/aws-sso-export.sh"
+
