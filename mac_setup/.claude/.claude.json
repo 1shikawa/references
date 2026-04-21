@@ -1,0 +1,2602 @@
+{
+  "numStartups": 655,
+  "installMethod": "native",
+  "autoUpdates": true,
+  "preferredNotifChannel": "terminal_bell",
+  "autoCompactEnabled": false,
+  "customApiKeyResponses": {
+    "approved": [],
+    "rejected": [
+      "zZWcTy5TE7g-qUA1oQAA"
+    ]
+  },
+  "tipsHistory": {
+    "new-user-warmup": 9,
+    "plan-mode-for-complex-tasks": 654,
+    "terminal-setup": 196,
+    "memory-command": 654,
+    "theme-command": 645,
+    "prompt-queue": 179,
+    "enter-to-steer-in-relatime": 652,
+    "todo-list": 654,
+    "# for memory": 187,
+    "install-github-app": 646,
+    "drag-and-drop-images": 646,
+    "paste-images-mac": 647,
+    "double-esc-code-restore": 647,
+    "continue": 648,
+    "shift-tab": 649,
+    "image-paste": 654,
+    "tab-toggle-thinking": 151,
+    "ultrathink-keyword": 255,
+    "custom-agents": 641,
+    "permissions": 646,
+    "custom-commands": 641,
+    "stickers-command": 260,
+    "git-worktrees": 646,
+    "frontend-design-plugin": 456,
+    "rename-conversation": 654,
+    "config-thinking-mode": 233,
+    "guest-passes": 655,
+    "install-slack-app": 646,
+    "desktop-app": 643,
+    "web-app": 643,
+    "mobile-app": 645,
+    "status-line": 329,
+    "btw-side-question": 234,
+    "shift-enter": 646,
+    "agent-flag": 642,
+    "feedback-command": 645,
+    "color-when-multi-clauding": 646,
+    "overage-credit": 611,
+    "voice-mode": 654
+  },
+  "promptQueueUseCount": 139,
+  "btwUseCount": 3,
+  "cachedStatsigGates": {
+    "tengu_disable_bypass_permissions_mode": false,
+    "tengu_tool_pear": false,
+    "tengu_migrate_ignore_patterns": false,
+    "tengu_halloween": false,
+    "tengu_glob_with_rg": false,
+    "tengu_web_tasks": false,
+    "tengu_enable_versioned_plugins": false,
+    "tengu_show_extra_usage_bar": false,
+    "code_slack_app_install_banner": false,
+    "tengu_sumi": false,
+    "tengu_react_vulnerability_warning": false,
+    "tengu_c4w_usage_limit_notifications_enabled": false,
+    "tengu_thinkback": false,
+    "tengu_prompt_suggestion": false,
+    "tengu_ant_attribution_header_new": false,
+    "tengu_log_1p_events": true,
+    "tengu_year_end_2025_campaign_promo": false,
+    "tengu_streaming_tool_execution2": false,
+    "tengu_session_memory": false
+  },
+  "cachedDynamicConfigs": {
+    "tengu_1p_event_batch_config": {
+      "scheduledDelayMillis": 5000,
+      "maxExportBatchSize": 200,
+      "maxQueueSize": 8192
+    },
+    "tengu-top-of-feed-tip": {
+      "tip": "",
+      "color": "dim"
+    }
+  },
+  "cachedGrowthBookFeatures": {
+    "tengu_pebble_leaf_prune": true,
+    "tengu_ultraplan_prompt_identifier": "visual_plan",
+    "tengu_disable_bypass_permissions_mode": false,
+    "tengu_red_coaster": false,
+    "tengu_cinder_almanac": true,
+    "tengu_silver_lantern": false,
+    "tengu_sm_config": {
+      "minimumMessageTokensToInit": 150000,
+      "minimumTokensBetweenUpdate": 40000,
+      "toolCallsBetweenUpdates": 10
+    },
+    "tengu_slate_nexus": true,
+    "tengu_copper_wren": false,
+    "tengu_code_diff_cli": true,
+    "tengu_oboe": true,
+    "tengu_willow_prism": true,
+    "tengu_amber_wren": {
+      "targetedRangeNudge": true,
+      "maxTokens": 25000
+    },
+    "tengu_noreread_q7m_velvet": true,
+    "tengu_olive_hinge": "",
+    "tengu_crystal_beam": {
+      "budgetTokens": 0
+    },
+    "tengu_marble_sandcastle": false,
+    "tengu_gha_plugin_code_review": false,
+    "tengu_quiet_hollow": true,
+    "tengu_thinkback": false,
+    "tengu_bergotte_lantern": false,
+    "tengu_pyrite_wren": false,
+    "tengu-top-of-feed-tip": {
+      "tip": "",
+      "color": ""
+    },
+    "tengu_slate_ribbon": false,
+    "tengu_onyx_plover": {
+      "enabled": false,
+      "minHours": 24,
+      "minSessions": 3
+    },
+    "tengu_accept_with_feedback": true,
+    "tengu_prompt_cache_1h_config": {
+      "allowlist": [
+        "repl_main_thread*",
+        "sdk",
+        "auto_mode",
+        "rolling_compact"
+      ]
+    },
+    "tengu_bramble_lintel": 7,
+    "tengu_marble_whisper": true,
+    "tengu_willow_refresh_ttl_hours": 0,
+    "tengu_post_compact_survey": false,
+    "tengu_vinteuil_phrase": true,
+    "tengu_editafterwrite_qpl": false,
+    "tengu_summarize_tool_results": true,
+    "tengu_quiet_fern": true,
+    "tengu_laurel_crown": false,
+    "tengu_vscode_review_upsell": false,
+    "tengu_auto_mode_config": {
+      "enabled": "enabled",
+      "twoStageClassifier": true
+    },
+    "tengu_marble_fox": false,
+    "tengu_coral_whistle": false,
+    "tengu_gleaming_fair": true,
+    "tengu_maple_forge_w8k": false,
+    "tengu_scarf_coffee": false,
+    "tengu_ccr_bridge": true,
+    "tengu_nimble_amber_prose": false,
+    "tengu_system_prompt_global_cache": true,
+    "tengu_react_vulnerability_warning": false,
+    "tengu_version_config": {
+      "minVersion": "1.0.24"
+    },
+    "tengu_harbor_ledger": [
+      {
+        "marketplace": "claude-plugins-official",
+        "plugin": "discord"
+      },
+      {
+        "marketplace": "claude-plugins-official",
+        "plugin": "telegram"
+      },
+      {
+        "marketplace": "claude-plugins-official",
+        "plugin": "fakechat"
+      },
+      {
+        "marketplace": "claude-plugins-official",
+        "plugin": "imessage"
+      }
+    ],
+    "tengu_garnet_loom": false,
+    "tengu_keybinding_customization_release": true,
+    "tengu_streaming_tool_execution2": true,
+    "tengu_cedar_inlet": "off",
+    "tengu_bridge_requires_action_details": false,
+    "tengu_feedback_survey_config": {
+      "minTimeBeforeFeedbackMs": 600000,
+      "minTimeBetweenFeedbackMs": 43200000,
+      "minTimeBetweenGlobalFeedbackMs": 43200000,
+      "minUserTurnsBeforeFeedback": 5,
+      "minUserTurnsBetweenFeedback": 25,
+      "hideThanksAfterMs": 3000,
+      "onForModels": [
+        "*"
+      ],
+      "probability": 0.01
+    },
+    "tengu_bridge_poll_interval_config": {
+      "poll_interval_ms_not_at_capacity": 2000,
+      "poll_interval_ms_at_capacity": 600000,
+      "heartbeat_interval_ms": 0,
+      "multisession_poll_interval_ms_not_at_capacity": 5000,
+      "multisession_poll_interval_ms_at_capacity": 60000,
+      "multisession_poll_interval_ms_partial_capacity": 5000,
+      "non_exclusive_heartbeat_interval_ms": 180000,
+      "session_keepalive_interval_ms": 0,
+      "session_keepalive_interval_v2_ms": 0
+    },
+    "tengu_ochre_hollow": false,
+    "tengu_coral_fern": false,
+    "tengu_orchid_mantis": false,
+    "tengu_snippet_save": false,
+    "tengu_mcp_elicitation": true,
+    "tengu_ember_quill": false,
+    "tengu_cobalt_ridge": true,
+    "tengu_moth_copse": false,
+    "tengu_tool_result_persistence": false,
+    "tengu_hawthorn_steeple": false,
+    "tengu_penguin_mode_promo": {
+      "discountPercent": 0,
+      "endDate": "Feb 16"
+    },
+    "tengu_plank_river_frost": "user_intent",
+    "tengu_marble_anvil": true,
+    "tengu_swinburne_dune": true,
+    "tengu_workout2": true,
+    "tengu_bridge_repl_v2_config": {
+      "init_retry_max_attempts": 3,
+      "init_retry_base_delay_ms": 500,
+      "init_retry_jitter_fraction": 0.25,
+      "init_retry_max_delay_ms": 4000,
+      "http_timeout_ms": 10000,
+      "uuid_dedup_buffer_size": 2000,
+      "heartbeat_interval_ms": 20000,
+      "heartbeat_jitter_fraction": 0.1,
+      "token_refresh_buffer_ms": 600000,
+      "teardown_archive_timeout_ms": 1500,
+      "connect_timeout_ms": 15000,
+      "min_version": "2.1.70",
+      "should_show_app_upgrade_message": false
+    },
+    "tengu_cobalt_compass": true,
+    "tengu_tst_hint_m7r": false,
+    "tengu_desktop_upsell_v2": {
+      "enabled": false
+    },
+    "tengu_flint_heron": false,
+    "tengu_cobalt_lantern": true,
+    "tengu_amber_redwood": "",
+    "tengu_grey_step": true,
+    "tengu_file_write_optimization": true,
+    "tengu_onyx_wren": false,
+    "tengu_pewter_brook": false,
+    "tengu_birthday_hat": false,
+    "tengu_cobalt_frost": true,
+    "tengu_ultraplan_config": {
+      "enabled": true
+    },
+    "tengu_pid_based_version_locking": true,
+    "tengu_jasper_finch": false,
+    "tengu_worktree_mode": true,
+    "tengu_kairos_push_notifications": true,
+    "tengu_amber_sentinel": true,
+    "tengu_attribution_header": true,
+    "tengu_basalt_3kr": true,
+    "tengu_bridge_client_presence_enabled": true,
+    "tengu_surreal_dali": true,
+    "tengu_slate_heron": {
+      "enabled": false,
+      "gapThresholdMinutes": 60,
+      "keepRecent": 5
+    },
+    "tengu_sage_compass": {},
+    "tengu_coral_beacon": true,
+    "tengu_loud_sugary_rock": false,
+    "tengu_miraculo_the_bard": false,
+    "tengu_plum_vx3": true,
+    "tengu_defer_caveat_m9k": false,
+    "tengu_willow_sentinel_ttl_hours": 1,
+    "tengu_copper_fox": false,
+    "tengu_amber_lynx": false,
+    "tengu_log_datadog_events": true,
+    "tengu_amber_prism": false,
+    "tengu_destructive_command_warning": false,
+    "tengu_trace_lantern": false,
+    "tengu_edit_anchorwaste_kp3": false,
+    "tengu_satin_quoll": {},
+    "tengu_cedar_halo": false,
+    "tengu_hazel_osprey": false,
+    "tengu_drift_lantern": false,
+    "tengu_timber_lark": "off",
+    "tengu_sub_nomdrep_q7k": true,
+    "tengu_hayate": false,
+    "tengu_compact_line_prefix_killswitch": false,
+    "tengu_tool_search_unsupported_models": [
+      "haiku"
+    ],
+    "tengu_c4w_usage_limit_notifications_enabled": true,
+    "tengu_borax_j4w": false,
+    "tengu_claudeai_mcp_connectors": true,
+    "tengu_relpath_gh7k": false,
+    "tengu_turtle_carbon": true,
+    "tengu-off-switch": {
+      "activated": false
+    },
+    "tengu_crimson_vector": true,
+    "tengu_hawthorn_window": 200000,
+    "tengu_kairos_loop_dynamic": true,
+    "tengu_sumi": true,
+    "tengu_amber_stoat": true,
+    "tengu_tern_alloy": "off",
+    "tengu_plugin_official_mkt_git_fallback": true,
+    "tengu_slate_finch": false,
+    "tengu_brass_pebble": false,
+    "tengu_negative_interaction_transcript_ask_config": {
+      "probability": 0
+    },
+    "tengu_tide_elm": "off",
+    "tengu_read_dedup_killswitch": true,
+    "tengu_birch_mist": true,
+    "tengu_amber_lattice": {
+      "plugins": [
+        "security-guidance",
+        "code-review",
+        "commit-commands",
+        "code-simplifier",
+        "hookify",
+        "feature-dev",
+        "frontend-design",
+        "pr-review-toolkit",
+        "skill-creator",
+        "plugin-dev",
+        "agent-sdk-dev",
+        "mcp-server-dev",
+        "claude-code-setup",
+        "claude-md-management",
+        "playground",
+        "ralph-loop",
+        "explanatory-output-style",
+        "learning-output-style",
+        "clangd-lsp",
+        "csharp-lsp",
+        "gopls-lsp",
+        "jdtls-lsp",
+        "kotlin-lsp",
+        "lua-lsp",
+        "php-lsp",
+        "pyright-lsp",
+        "ruby-lsp",
+        "rust-analyzer-lsp",
+        "swift-lsp",
+        "typescript-lsp"
+      ]
+    },
+    "tengu_harbor": true,
+    "tengu_slate_ridge": true,
+    "tengu_cork_m4q": true,
+    "tengu_basalt_wren": false,
+    "tengu_ant_attribution_header_new": true,
+    "tengu_tangerine_ladder_boost": true,
+    "tengu_bad_survey_transcript_ask_config": {
+      "probability": 0.5
+    },
+    "tengu_gypsum_kite": false,
+    "tengu_quiet_basalt_echo": false,
+    "tengu_birch_compass": true,
+    "tengu_tool_pear": false,
+    "tengu_cork_lantern": false,
+    "tengu_bridge_min_version": {
+      "minVersion": "2.1.70"
+    },
+    "tengu_harbor_permissions": true,
+    "tengu_review_bughunter_config": {
+      "fleet_size": 5,
+      "max_duration_minutes": 10,
+      "agent_timeout_seconds": 600,
+      "total_wallclock_minutes": 22,
+      "model": "claude-opus-4-7",
+      "cost_note": "$5-$20",
+      "duration_note": "~5-10 min",
+      "enabled": true
+    },
+    "tengu_amber_lark": false,
+    "tengu_kv7_prompt_sort": true,
+    "tengu_otk_slot_v1": false,
+    "tengu_slate_moth": false,
+    "tengu_passport_quail": false,
+    "tengu_ccr_bridge_multi_session": true,
+    "tengu_good_survey_transcript_ask_config": {
+      "probability": 0.5
+    },
+    "tengu_mcp_subagent_prompt": true,
+    "tengu_orchid_trellis": false,
+    "tengu_copper_lantern": false,
+    "tengu_lean_sub_pf7q": false,
+    "auto_migrate_to_native": false,
+    "tengu_brief_tool_enabled": false,
+    "tengu_mulberry_fog": false,
+    "tengu_amber_flint": true,
+    "tengu_walrus_canteen": false,
+    "tengu_frond_boric": {},
+    "tengu_blue_coaster": false,
+    "tengu_marble_whisper2": true,
+    "tengu_glacier_2xr": true,
+    "tengu_willow_mode": "hint_v2",
+    "tengu_amber_swift": false,
+    "tengu_kairos_cron": true,
+    "tengu_pr_status_cli": true,
+    "tengu_willow_census_ttl_hours": 24,
+    "tengu_mcp_retry_failed_remote": false,
+    "tengu_scratch": false,
+    "tengu_slate_thimble": false,
+    "tengu_silk_hinge": false,
+    "tengu_native_installation": false,
+    "tengu_frozen_nest": false,
+    "tengu_pewter_kestrel": {
+      "global": 50000,
+      "Bash": 30000,
+      "PowerShell": 30000,
+      "Grep": 20000,
+      "Snip": 1000,
+      "StrReplaceBasedEditTool": 30000,
+      "BashSearchTool": 20000
+    },
+    "tengu_jade_anvil_4": true,
+    "tengu_ccr_post_turn_summary": false,
+    "tengu_ccr_bundle_max_bytes": 104857600,
+    "tengu_cobalt_heron": false,
+    "tengu_amber_coil_r4n": false,
+    "tengu_shale_finch": true,
+    "tengu_sm_compact": false,
+    "tengu_sepia_heron": false,
+    "tengu_vscode_cc_auth": true,
+    "tengu_kairos_cron_durable": false,
+    "tengu_ember_latch": false,
+    "tengu_session_memory": false,
+    "tengu_sage_compass2": {
+      "enabled": true
+    },
+    "tengu_gouda_loop": false,
+    "tengu_herring_clock": false,
+    "tengu_quartz_lantern": true,
+    "tengu_year_end_2025_campaign_promo": false,
+    "tengu_grey_wool": true,
+    "tengu_quill_anvil": false,
+    "tengu_amber_quartz": true,
+    "tengu_sm_compact_config": {
+      "minTokens": 2000,
+      "maxTokens": 20000,
+      "minTextBlockMessages": 5
+    },
+    "tengu_copper_bridge": true,
+    "tengu_swann_brevity": "focused",
+    "tengu_basalt_kite": false,
+    "tengu_mocha_barista": false,
+    "tengu_collage_kaleidoscope": true,
+    "tengu_canary": {},
+    "tengu_defer_all_bn4": false,
+    "tengu_permission_explainer": true,
+    "tengu_cache_plum_violet": true,
+    "tengu_max_version_config": {},
+    "tengu_ccr_bundle_seed_enabled": true,
+    "tengu_flint_harbor": false,
+    "tengu_sedge_lantern": true,
+    "tengu_lichen_compass": false,
+    "tengu_malort_pedway": {
+      "enabled": true,
+      "pixelValidation": false,
+      "clipboardPasteMultiline": true,
+      "screenshotFilter": true,
+      "mouseAnimation": true,
+      "hideBeforeAction": true,
+      "autoTargetDisplay": false,
+      "coordinateMode": "pixels"
+    },
+    "tengu_ultraplan_timeout_seconds": 5400,
+    "ccr_auto_permission_mode": false,
+    "tengu_doorbell_agave": false,
+    "tengu_event_sampling_config": {},
+    "tengu_grey_step2": {
+      "enabled": true,
+      "dialogTitle": "We recommend medium effort for Opus",
+      "dialogDescription": "Effort determines how long Claude thinks for when completing your task. We recommend medium effort for most tasks to balance speed and intelligence and maximize rate limits. Use ultrathink to trigger high effort when needed."
+    },
+    "tengu_relay_chain_v1": false,
+    "tengu_flint_harbor_prompt": {
+      "prompt": "You are helping a power user generate an onboarding guide for teammates who are new to Claude Code. The guide will live in the team's onboarding docs and can be pasted into Claude for an interactive walkthrough.\n\nYou're co-authoring this with them — collaborative and helpful, like a teammate who's done this before and is happy to share.\n\n## Usage data (last {{WINDOW_DAYS}} days)\n\nThis was scanned from the guide creator's local Claude Code transcripts:\n\n```json\n{{USAGE_DATA}}\n```\n\n## Your task\n\nBefore anything else — including before thinking through the classification — output exactly this line as your first visible text:\n\n> Looking at how you've used Claude over the last {{WINDOW_DAYS}} days to put together an onboarding guide for teammates new to Claude Code.\n\nThis must come before any extended thinking about session descriptors. The guide creator is staring at a blank screen until you do. Classification is step 2, not step 1.\n\nGenerate the guide immediately, then ask for revisions. Don't wait for answers first — it's easier for the guide creator to edit a concrete draft than answer abstract questions.\n\n1. **Output the acknowledgment line above.** No thinking, no classification, no tool calls before this. One line, then move on.\n\n2. **Derive the work-type breakdown.** Read the `sessionDescriptors` array — each entry describes one session via its title, any linked code reviews (`prNumbers`), and first user message. Classify each session into one of these task types:\n\n   - **build_feature** — new functionality, scripts, tools, config/CI/env setup\n   - **debug_fix** — investigating and fixing bugs\n   - **improve_quality** — refactoring, tests, cleanup, code review\n   - **analyze_data** — queries, metrics, number crunching\n   - **plan_design** — architecture, approach, strategy, understanding unfamiliar code, design review\n   - **prototype** — spikes, POCs, throwaway exploration\n   - **write_docs** — PRDs, RFCs, READMEs, design docs, copy/doc review\n\n   Categories describe the *type of task*, not the project or domain — a teammate on any project should recognize them. Review sessions belong with whatever's being reviewed: code review is improve_quality, doc review is write_docs, design review is plan_design. Most sessions fit the list; only invent a new category if it's genuinely a different type of task. Pick the top 3-5 with rough percentages. First messages alone are usually enough; titles and code-review links are enrichment. If first messages are uninformative, use tool and MCP counts as a weak hint. If there are ~0 sessions, leave the breakdown as a TODO.\n\n   In the rendered guide, display categories with spaces and title case (e.g. \"Build Feature\" not \"build_feature\").\n\n3. **Gather the remaining pieces.** For repos, start with `currentRepo` and check the workspace for sibling repo directories. For MCP server setup, use each entry's `name` (and `urlOrigin` where present) to infer what the server does and how a teammate would get access. Leave the Team Tips and Get Started sections as TODO placeholders — you'll ask for these in Review and fill them in after.\n\n4. **Write the guide to `ONBOARDING.md`** following this template:\n\n```\n{{GUIDE_TEMPLATE}}\n```\n\n   Fill in real numbers from the usage data (not placeholders). Use `generatedBy` for the name; if it's missing, omit the name. Ascii bar charts: `█` for filled, `░` for empty, 20 chars wide. Keep the HTML comment instruction at the bottom exactly as shown.\n\n5. **Render the guide in a code block, then close out the first turn.** You're co-authoring this guide with the guide creator — frame the follow-up as collaboration, not corrections.\n\n   After the code block, add a `---` horizontal rule and a `**Review**` heading so the guide is visually separated from your questions. Under the heading, number these three questions:\n\n   1. \"I went with '[X]' for the team name — let me know if that sounds right.\" (or if you couldn't tell: \"What's the team name? I'll add it in.\")\n   2. Is there a starter task for someone new to Claude Code? (ticket or doc link — optional)\n   3. Any team tips you'd tell a new teammate that aren't already in CLAUDE.md?\n\n   After they answer, update `ONBOARDING.md` with their team name, tips, and starter task. Then close with this exact line (not numbered, not paraphrased):\n\n   Saved to `ONBOARDING.md`. Drop it in your team docs and channels — when a new teammate pastes it into Claude Code, they get a guided onboarding tour from there.\n\n   Apply any edits they come back with to the file.",
+      "guideTemplate": "# Welcome to [Team Name]\n\n## How We Use Claude\n\nBased on [name]'s usage over the last [N] days:\n\nWork Type Breakdown:\n  [Category 1]  [ascii bar]  [N]%\n  [Category 2]  [ascii bar]  [N]%\n  [Category 3]  [ascii bar]  [N]%\n  ...\n\nTop Skills & Commands:\n  [/command]  [ascii bar]  [N]x/month\n  ...\n\nTop MCP Servers:\n  [Server]  [ascii bar]  [N] calls\n  ...\n\n## Your Setup Checklist\n\n### Codebases\n- [ ] [repo-name] — [repo url]\n...\n\n### MCP Servers to Activate\n- [ ] [Server] — [what it's for]. [How to get access]\n...\n\n### Skills to Know About\n- [/command] — [what it does, when the team uses it]\n...\n\n## Team Tips\n\n_TODO_\n\n## Get Started\n\n_TODO_\n\n<!-- INSTRUCTION FOR CLAUDE: A new teammate just pasted this guide for how the\nteam uses Claude Code. You're their onboarding buddy — warm, conversational,\nnot lecture-y.\n\nOpen with a warm welcome — include the team name from the title. Then: \"Your\nteammate uses Claude Code for [list all the work types]. Let's get you started.\"\n\nCheck what's already in place against everything under Setup Checklist\n(including skills), using markdown checkboxes — [x] done, [ ] not yet. Lead\nwith what they already have. One sentence per item, all in one message.\n\nTell them you'll help with setup, cover the actionable team tips, then the\nstarter task (if there is one). Offer to start with the first unchecked item,\nget their go-ahead, then work through the rest one by one.\n\nAfter setup, walk them through the remaining sections — offer to help where you\ncan (e.g. link to channels), and just surface the purely informational bits.\n\nDon't invent sections or summaries that aren't in the guide. The stats are the\nguide creator's personal usage data — don't extrapolate them into a \"team\nworkflow\" narrative. -->",
+      "windowDays": 30
+    },
+    "tengu_1p_event_batch_config": {
+      "scheduledDelayMillis": 10000,
+      "maxExportBatchSize": 400,
+      "maxQueueSize": 8192,
+      "path": "/api/event_logging/v2/batch"
+    },
+    "tengu_lapis_finch": true,
+    "tengu_streaming_text": true,
+    "tengu_bridge_repl_v2": true,
+    "tengu_compact_cache_prefix": true,
+    "tengu_garnet_plover": false,
+    "tengu_lodestone_enabled": true,
+    "tengu_pewter_ledger": "OFF",
+    "tengu_pewter_lantern": false,
+    "tengu_cobalt_raccoon": false,
+    "tengu_vscode_onboarding": false,
+    "tengu_velvet_moth": 0.2,
+    "tengu_chomp_inflection": false,
+    "tengu_billiard_aviary": false,
+    "tengu_mcp_tool_search": true,
+    "tengu_chair_sermon": false,
+    "tengu_prompt_suggestion": true,
+    "tengu_opus_default_pro_plan": false,
+    "tengu_immediate_model_command": false,
+    "tengu_dunwich_bell": false,
+    "tengu_bridge_poll_interval_ms": 0,
+    "tengu_quill_anvil_v2": false,
+    "tengu_sotto_voce": true,
+    "tengu_penguins_enabled": true,
+    "tengu_desktop_upsell": {
+      "enable_shortcut_tip": true,
+      "enable_startup_dialog": false
+    },
+    "tengu_turnip_cathedral": false
+  },
+  "unpinOpus47LaunchEffort": true,
+  "hasSeenStashHint": true,
+  "userID": "cf2e3ce57d8b9b0e468399a8d405055d5e144f9105137d3aa9efb5a4a6c43b5c",
+  "projects": {
+    "/Users/toru_ishikawa/ghq/github.com/ascend-ltd/ascend-infra": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "ignorePatterns": [],
+      "projectOnboardingSeenCount": 5,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "disabledMcpServers": [
+        "well-architected-security-mcp-server",
+        "tfmcp"
+      ],
+      "lastTotalWebSearchRequests": 0,
+      "exampleFiles": [
+        "ascend-std-eks-cluster.ts",
+        "ascend-quicksight-stack.ts",
+        "ascend-logi-runtime.ts",
+        "ascend-logi-runtime-stack.ts",
+        "ascend-dbt.ts"
+      ],
+      "exampleFilesGeneratedAt": 1776436418728,
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "lastCost": 73.33837775000006,
+      "lastAPIDuration": 4814826,
+      "lastAPIDurationWithoutRetries": 4812960,
+      "lastToolDuration": 655003,
+      "lastDuration": 157856617,
+      "lastLinesAdded": 1019,
+      "lastLinesRemoved": 37,
+      "lastTotalInputTokens": 17528,
+      "lastTotalOutputTokens": 316637,
+      "lastTotalCacheCreationInputTokens": 1957127,
+      "lastTotalCacheReadInputTokens": 106205538,
+      "lastModelUsage": {
+        "claude-opus-4-7[1m]": {
+          "inputTokens": 17528,
+          "outputTokens": 316637,
+          "cacheReadInputTokens": 106205538,
+          "cacheCreationInputTokens": 1957127,
+          "webSearchRequests": 0,
+          "costUSD": 73.33837775000006
+        }
+      },
+      "lastSessionId": "d7ff4cd9-8096-4d82-93e2-e908b52aaf37",
+      "hasCompletedProjectOnboarding": true,
+      "lastFpsAverage": 0.81,
+      "lastFpsLow1Pct": 165.06,
+      "lastSessionMetrics": {
+        "frame_duration_ms_count": 78579,
+        "frame_duration_ms_min": 0.1387499999254942,
+        "frame_duration_ms_max": 527.1416250020266,
+        "frame_duration_ms_avg": 1.708663097007525,
+        "frame_duration_ms_p50": 1.5585210006684065,
+        "frame_duration_ms_p95": 3.2347313500475114,
+        "frame_duration_ms_p99": 5.709106410001404,
+        "hook_duration_ms_count": 269,
+        "hook_duration_ms_min": 149,
+        "hook_duration_ms_max": 4343,
+        "hook_duration_ms_avg": 421.9405204460966,
+        "hook_duration_ms_p50": 174,
+        "hook_duration_ms_p95": 3205.4,
+        "hook_duration_ms_p99": 3950.9199999999996,
+        "pre_tool_hook_duration_ms_count": 235,
+        "pre_tool_hook_duration_ms_min": 0,
+        "pre_tool_hook_duration_ms_max": 3,
+        "pre_tool_hook_duration_ms_avg": 0.07659574468085106,
+        "pre_tool_hook_duration_ms_p50": 0,
+        "pre_tool_hook_duration_ms_p95": 1,
+        "pre_tool_hook_duration_ms_p99": 1.6599999999999966
+      },
+      "lastGracefulShutdown": true
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-IaC": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "ignorePatterns": [],
+      "projectOnboardingSeenCount": 4,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "lastTotalWebSearchRequests": 0,
+      "exampleFiles": [
+        "recaptcha.yaml",
+        "role_service_accounts.common.yaml",
+        "mongodbatlas_cluster.tf",
+        "mongodbatlas.yaml",
+        "cloud_run.yaml"
+      ],
+      "exampleFilesGeneratedAt": 1773901796477,
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "lastCost": 89.36395225000001,
+      "lastAPIDuration": 4485933,
+      "lastAPIDurationWithoutRetries": 4480989,
+      "lastToolDuration": 258879,
+      "lastDuration": 1319408310,
+      "lastLinesAdded": 974,
+      "lastLinesRemoved": 174,
+      "lastTotalInputTokens": 27260,
+      "lastTotalOutputTokens": 180196,
+      "lastTotalCacheCreationInputTokens": 9062077,
+      "lastTotalCacheReadInputTokens": 56169542,
+      "lastModelUsage": {
+        "claude-opus-4-6": {
+          "inputTokens": 25084,
+          "outputTokens": 83979,
+          "cacheReadInputTokens": 10637953,
+          "cacheCreationInputTokens": 2226848,
+          "webSearchRequests": 0,
+          "costUSD": 21.4616715
+        },
+        "claude-opus-4-6[1m]": {
+          "inputTokens": 2176,
+          "outputTokens": 96217,
+          "cacheReadInputTokens": 45531589,
+          "cacheCreationInputTokens": 6835229,
+          "webSearchRequests": 0,
+          "costUSD": 67.90228075000005
+        }
+      },
+      "lastSessionId": "45da47a9-3821-4cf3-a31f-2f2dc7662b45",
+      "lastFpsAverage": 0.27,
+      "lastFpsLow1Pct": 21.56,
+      "lastSessionMetrics": {
+        "frame_duration_ms_count": 212,
+        "frame_duration_ms_min": 0.23570799999998826,
+        "frame_duration_ms_max": 81.11854199999993,
+        "frame_duration_ms_avg": 4.993497231132694,
+        "frame_duration_ms_p50": 1.0447079999994457,
+        "frame_duration_ms_p95": 28.09143560000358,
+        "frame_duration_ms_p99": 45.208993869979025,
+        "hook_duration_ms_count": 1,
+        "hook_duration_ms_min": 685,
+        "hook_duration_ms_max": 685,
+        "hook_duration_ms_avg": 685,
+        "hook_duration_ms_p50": 685,
+        "hook_duration_ms_p95": 685,
+        "hook_duration_ms_p99": 685
+      }
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "ignorePatterns": [],
+      "projectOnboardingSeenCount": 6,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "lastTotalWebSearchRequests": 0,
+      "exampleFiles": [
+        "app.module.ts",
+        "coordination-system.service.ts",
+        "sites.service.ts",
+        "corporations.service.ts",
+        "gateway.service.ts"
+      ],
+      "exampleFilesGeneratedAt": 1769065441079,
+      "lastCost": 4.525019750000001,
+      "lastAPIDuration": 588282,
+      "lastToolDuration": 57443,
+      "lastDuration": 328991941,
+      "lastLinesAdded": 461,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 5877,
+      "lastTotalOutputTokens": 32832,
+      "lastTotalCacheCreationInputTokens": 381085,
+      "lastTotalCacheReadInputTokens": 2652771,
+      "lastSessionId": "472f39cc-109a-41d5-a402-95f2d2b06d24",
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "lastAPIDurationWithoutRetries": 588271,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 5363,
+          "outputTokens": 594,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.008333000000000002
+        },
+        "claude-opus-4-5-20251101": {
+          "inputTokens": 514,
+          "outputTokens": 32238,
+          "cacheReadInputTokens": 2652771,
+          "cacheCreationInputTokens": 381085,
+          "webSearchRequests": 0,
+          "costUSD": 4.516686750000001
+        }
+      }
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-worker": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "ignorePatterns": [],
+      "projectOnboardingSeenCount": 1,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "projections.service.ts",
+        "site-localizations.service.ts",
+        "package.json",
+        "setup-gcs.ts",
+        "endpoint-test.yaml"
+      ],
+      "exampleFilesGeneratedAt": 1762336489462,
+      "lastCost": 1.0016242,
+      "lastAPIDuration": 214101,
+      "lastToolDuration": 5429,
+      "lastDuration": 543084673,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 1806,
+      "lastTotalOutputTokens": 11002,
+      "lastTotalCacheCreationInputTokens": 163790,
+      "lastTotalCacheReadInputTokens": 745459,
+      "lastTotalWebSearchRequests": 0,
+      "lastSessionId": "511fb97a-d4ac-43dc-8dd5-7c8de09f306e"
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/ebc-documents": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 2,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "specification.md",
+        "database-migration.md",
+        "pitr.md",
+        "product-life-cycle.md",
+        "setup.md"
+      ],
+      "exampleFilesGeneratedAt": 1762879870079,
+      "lastTotalWebSearchRequests": 0,
+      "lastCost": 0.5775668,
+      "lastAPIDuration": 87739,
+      "lastToolDuration": 859,
+      "lastDuration": 226234,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 2887,
+      "lastTotalOutputTokens": 4200,
+      "lastTotalCacheCreationInputTokens": 90556,
+      "lastTotalCacheReadInputTokens": 599316,
+      "lastSessionId": "1bf780b2-111b-4ccd-93cf-d0ea7b81d6d8"
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/ccoe-governance-infra": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {
+        "gke-mcp": {
+          "command": "/Users/toru_ishikawa/.local/share/mise/shims/gke-mcp",
+          "args": []
+        }
+      },
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 4,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "main.tf",
+        "terragrunt.hcl",
+        "outputs.tf",
+        "google-workspace.yml",
+        "variables.tf"
+      ],
+      "exampleFilesGeneratedAt": 1768739169587,
+      "lastTotalWebSearchRequests": 0,
+      "lastCost": 3.0301967499999996,
+      "lastAPIDuration": 505232,
+      "lastToolDuration": 149572,
+      "lastDuration": 498130557,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 47875,
+      "lastTotalOutputTokens": 18463,
+      "lastTotalCacheCreationInputTokens": 195928,
+      "lastTotalCacheReadInputTokens": 596617,
+      "lastSessionId": "65409bb7-02cb-4789-b906-f6d59adb0c34",
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "lastAPIDurationWithoutRetries": 253934,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 25828,
+          "outputTokens": 8072,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 15495,
+          "webSearchRequests": 0,
+          "costUSD": 0.08555675
+        },
+        "claude-opus-4-5-20251101": {
+          "inputTokens": 22047,
+          "outputTokens": 10391,
+          "cacheReadInputTokens": 596617,
+          "cacheCreationInputTokens": 180433,
+          "webSearchRequests": 0,
+          "costUSD": 1.79602475
+        }
+      }
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/ebc-base-infra": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 4,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "terragrunt.hcl",
+        "terragrunt.hcl",
+        "terragrunt.hcl",
+        "terragrunt.hcl",
+        "root.hcl"
+      ],
+      "exampleFilesGeneratedAt": 1769395068424,
+      "lastTotalWebSearchRequests": 0,
+      "lastCost": 4.665421749999999,
+      "lastAPIDuration": 657991,
+      "lastToolDuration": 526053,
+      "lastDuration": 316550408,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 33668,
+      "lastTotalOutputTokens": 34522,
+      "lastTotalCacheCreationInputTokens": 438249,
+      "lastTotalCacheReadInputTokens": 2067775,
+      "lastSessionId": "1ab60115-937a-4f9e-854f-d07943fbe24e",
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "lastAPIDurationWithoutRetries": 657976,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 27653,
+          "outputTokens": 1415,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.034728
+        },
+        "claude-opus-4-5-20251101": {
+          "inputTokens": 6015,
+          "outputTokens": 33107,
+          "cacheReadInputTokens": 2067775,
+          "cacheCreationInputTokens": 438249,
+          "webSearchRequests": 0,
+          "costUSD": 4.63069375
+        }
+      },
+      "lastFpsAverage": 0.22,
+      "lastFpsLow1Pct": 36.49
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-IaC-worktrees/my-feature": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "recaptcha.yaml",
+        "mongodbatlas_cluster.tf",
+        "role_service_accounts.common.yaml",
+        "cloud_run.yaml",
+        "scheduler_jobs.yaml"
+      ],
+      "exampleFilesGeneratedAt": 1763394761844,
+      "lastCost": 0.0234825,
+      "lastAPIDuration": 13296,
+      "lastToolDuration": 0,
+      "lastDuration": 62325,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 2184,
+      "lastTotalOutputTokens": 1431,
+      "lastTotalCacheCreationInputTokens": 1778,
+      "lastTotalCacheReadInputTokens": 0,
+      "lastTotalWebSearchRequests": 0,
+      "lastSessionId": "3ba72fe6-f4d0-4ebb-9345-171fa2fd55f0"
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-IaC/worktrees/gtr": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "recaptcha.yaml",
+        "mongodbatlas_cluster.tf",
+        "role_service_accounts.common.yaml",
+        "mongodbatlas.yaml",
+        "cloud_run.yaml"
+      ],
+      "exampleFilesGeneratedAt": 1763397193436,
+      "lastCost": 0.021993,
+      "lastAPIDuration": 13340,
+      "lastToolDuration": 0,
+      "lastDuration": 87132,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 2182,
+      "lastTotalOutputTokens": 1345,
+      "lastTotalCacheCreationInputTokens": 1776,
+      "lastTotalCacheReadInputTokens": 0,
+      "lastTotalWebSearchRequests": 0,
+      "lastSessionId": "e3f3568c-8af0-4cfd-8761-597eacf02236"
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-IaC/worktrees/test-feat": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "recaptcha.yaml",
+        "mongodbatlas_cluster.tf",
+        "role_service_accounts.common.yaml",
+        "cloud_run.yaml",
+        "scheduler_jobs.yaml"
+      ],
+      "exampleFilesGeneratedAt": 1763397521621,
+      "lastCost": 0.0217625,
+      "lastAPIDuration": 13179,
+      "lastToolDuration": 0,
+      "lastDuration": 24964,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 2184,
+      "lastTotalOutputTokens": 1309,
+      "lastTotalCacheCreationInputTokens": 1778,
+      "lastTotalCacheReadInputTokens": 0,
+      "lastTotalWebSearchRequests": 0,
+      "lastSessionId": "4f9d8164-5ead-4cfc-b32f-7f2c05bc53d4"
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-IaC/worktrees/gtr-test": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "recaptcha.yaml",
+        "mongodbatlas_cluster.tf",
+        "role_service_accounts.common.yaml",
+        "cloud_run.yaml",
+        "scheduler_jobs.yaml"
+      ],
+      "exampleFilesGeneratedAt": 1763397703216,
+      "lastCost": 0.022522,
+      "lastAPIDuration": 14087,
+      "lastToolDuration": 0,
+      "lastDuration": 58197,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 2186,
+      "lastTotalOutputTokens": 1381,
+      "lastTotalCacheCreationInputTokens": 1780,
+      "lastTotalCacheReadInputTokens": 0,
+      "lastTotalWebSearchRequests": 0,
+      "lastSessionId": "dcc74d22-9933-4b02-969c-251fb51efd42"
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-IaC/worktrees/testtest": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "recaptcha.yaml",
+        "mongodbatlas_cluster.tf",
+        "role_service_accounts.common.yaml",
+        "cloud_run.yaml",
+        "scheduler_jobs.yaml"
+      ],
+      "exampleFilesGeneratedAt": 1763397841618,
+      "lastCost": 0.021898,
+      "lastAPIDuration": 11847,
+      "lastToolDuration": 0,
+      "lastDuration": 75188,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 2182,
+      "lastTotalOutputTokens": 1332,
+      "lastTotalCacheCreationInputTokens": 1776,
+      "lastTotalCacheReadInputTokens": 0,
+      "lastTotalWebSearchRequests": 0,
+      "lastSessionId": "30cc858e-a62b-419c-bbbd-0891e18fc9e0"
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-IaC/worktrees/dev-0000": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "recaptcha.yaml",
+        "mongodbatlas_cluster.tf",
+        "role_service_accounts.common.yaml",
+        "cloud_run.yaml",
+        "scheduler_jobs.yaml"
+      ],
+      "exampleFilesGeneratedAt": 1763398157881,
+      "lastTotalWebSearchRequests": 0,
+      "lastCost": 0.022126,
+      "lastAPIDuration": 11741,
+      "lastToolDuration": 0,
+      "lastDuration": 24087,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 2620,
+      "lastTotalOutputTokens": 1289,
+      "lastTotalCacheCreationInputTokens": 1780,
+      "lastTotalCacheReadInputTokens": 0,
+      "lastSessionId": "df386798-bc9b-405f-a7cd-e90ce8277e8c"
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-IaC/worktrees/dev-11111": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "recaptcha.yaml",
+        "mongodbatlas_cluster.tf",
+        "role_service_accounts.common.yaml",
+        "cloud_run.yaml",
+        "scheduler_jobs.yaml"
+      ],
+      "exampleFilesGeneratedAt": 1763398627391,
+      "lastCost": 0.022092,
+      "lastAPIDuration": 11535,
+      "lastToolDuration": 0,
+      "lastDuration": 114846,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 2186,
+      "lastTotalOutputTokens": 1329,
+      "lastTotalCacheCreationInputTokens": 1780,
+      "lastTotalCacheReadInputTokens": 0,
+      "lastTotalWebSearchRequests": 0,
+      "lastSessionId": "f25b0571-378b-401f-87f8-65fd610ffff4"
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-IaC/worktrees/dev-6666/worktrees/dev-33232": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "recaptcha.yaml",
+        "role_service_accounts.common.yaml",
+        "mongodbatlas_cluster.tf",
+        "cloud_run.yaml",
+        "service_accounts.yaml"
+      ],
+      "exampleFilesGeneratedAt": 1763399596121,
+      "lastCost": 0.5267856,
+      "lastAPIDuration": 63517,
+      "lastToolDuration": 503,
+      "lastDuration": 171785,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 2610,
+      "lastTotalOutputTokens": 3526,
+      "lastTotalCacheCreationInputTokens": 87866,
+      "lastTotalCacheReadInputTokens": 501367,
+      "lastTotalWebSearchRequests": 0,
+      "lastSessionId": "2eda378d-7303-4da4-b647-7341a927d990"
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-IaC/worktrees/DEV-10181-Enable-iac-deployment-to-be-performed-with-cloud-deploy": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 3,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "cloudbuild.yaml",
+        "skaffold.yaml",
+        "google_storage_bucket.tf",
+        "clouddeploy.yaml",
+        "recaptcha.yaml"
+      ],
+      "exampleFilesGeneratedAt": 1763483656406,
+      "lastTotalWebSearchRequests": 0,
+      "lastCost": 1.2479902500000006,
+      "lastAPIDuration": 149639,
+      "lastToolDuration": 3119,
+      "lastDuration": 21447008,
+      "lastLinesAdded": 342,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 43476,
+      "lastTotalOutputTokens": 8471,
+      "lastTotalCacheCreationInputTokens": 102793,
+      "lastTotalCacheReadInputTokens": 723286,
+      "lastSessionId": "2cd063bd-aa0b-4b21-9013-d23f8ac21115"
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-IaC/worktrees/DEV-10232-Remove-staging-configs": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 1,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "recaptcha.yaml",
+        "role_service_accounts.common.yaml",
+        "mongodbatlas_cluster.tf",
+        "mongodbatlas.yaml",
+        "cloud_run.yaml"
+      ],
+      "exampleFilesGeneratedAt": 1763692476096,
+      "lastCost": 0.023751500000000002,
+      "lastAPIDuration": 14208,
+      "lastToolDuration": 0,
+      "lastDuration": 113408,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 2188,
+      "lastTotalOutputTokens": 1441,
+      "lastTotalCacheCreationInputTokens": 1782,
+      "lastTotalCacheReadInputTokens": 0,
+      "lastTotalWebSearchRequests": 0,
+      "lastSessionId": "52bdd71e-c6e1-41c1-84c6-44537e0d8f22"
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-secret-storage": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 2,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "I cannot provide five filenames that represent core application logic from this list. The files shown are exclusively:",
+        "",
+        "- Configuration files (`.yaml`)",
+        "- Secret files (`*_secret.yaml`)",
+        "- Infrastructure-as-Code files (`.iac/`)",
+        "- Metadata files (`README.md`, `.gitignore`, `CODEOWNERS`)",
+        "- GitHub workflow files",
+        "",
+        "There are no source code files (`.py`, `.js`, `.ts`, `.java`, etc.) or core application logic files present in this git history data. To identify five representative core application logic files, I would need a dataset that includes actual application source code files."
+      ],
+      "exampleFilesGeneratedAt": 1764640151909,
+      "lastCost": 1.8052615,
+      "lastAPIDuration": 116592,
+      "lastToolDuration": 2711,
+      "lastDuration": 138645071,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 10903,
+      "lastTotalOutputTokens": 4965,
+      "lastTotalCacheCreationInputTokens": 233106,
+      "lastTotalCacheReadInputTokens": 443978,
+      "lastTotalWebSearchRequests": 0,
+      "lastSessionId": "8f42f760-6567-4c57-b758-3b437c3c7e22"
+    },
+    "/Users/toru_ishikawa/ghq/github.com/ascend-ltd/ascend-logi": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "types.ts",
+        "order-csv-template-provider.ts",
+        "di-container.ts",
+        "feature-flags.ts",
+        "order-postgres-repository.ts"
+      ],
+      "exampleFilesGeneratedAt": 1766199015666,
+      "hasCompletedProjectOnboarding": true,
+      "lastTotalWebSearchRequests": 0,
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "lastCost": 0,
+      "lastAPIDuration": 0,
+      "lastAPIDurationWithoutRetries": 0,
+      "lastToolDuration": 0,
+      "lastDuration": 96806,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 0,
+      "lastTotalOutputTokens": 0,
+      "lastTotalCacheCreationInputTokens": 0,
+      "lastTotalCacheReadInputTokens": 0,
+      "lastModelUsage": {},
+      "lastSessionId": "30bdf8b7-fbbf-4beb-a814-0956e9166c72"
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/ccoe-google-workspace-iac": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 5,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "google-workspace.yml",
+        "terragrunt.hcl",
+        "main.tf",
+        "variables.tf",
+        "ai.yaml"
+      ],
+      "exampleFilesGeneratedAt": 1766025118129,
+      "lastCost": 50.93637149999993,
+      "lastAPIDuration": 3679814,
+      "lastToolDuration": 491753,
+      "lastDuration": 1055370491,
+      "lastLinesAdded": 430,
+      "lastLinesRemoved": 127,
+      "lastTotalInputTokens": 517387,
+      "lastTotalOutputTokens": 53741,
+      "lastTotalCacheCreationInputTokens": 1786294,
+      "lastTotalCacheReadInputTokens": 10980152,
+      "lastTotalWebSearchRequests": 0,
+      "lastSessionId": "d540f350-2222-46e6-a719-12cc9d0bde98",
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "lastAPIDurationWithoutRetries": 1342955,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 511910,
+          "outputTokens": 3572,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.5297700000000003
+        },
+        "claude-opus-4-5-20251101": {
+          "inputTokens": 5477,
+          "outputTokens": 50169,
+          "cacheReadInputTokens": 10980152,
+          "cacheCreationInputTokens": 1786294,
+          "webSearchRequests": 0,
+          "costUSD": 17.936023500000005
+        }
+      }
+    },
+    "/Users/toru_ishikawa/ghq/github.com/coderabbitai/git-worktree-runner": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "gtr",
+        "_git-gtr",
+        "core.sh",
+        "init.sh",
+        "init.bats"
+      ],
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "hasCompletedProjectOnboarding": true,
+      "lastCost": 1.10687075,
+      "lastAPIDuration": 143405,
+      "lastAPIDurationWithoutRetries": 143291,
+      "lastToolDuration": 18300,
+      "lastDuration": 1035068,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 396,
+      "lastTotalOutputTokens": 8829,
+      "lastTotalCacheCreationInputTokens": 92163,
+      "lastTotalCacheReadInputTokens": 619774,
+      "lastTotalWebSearchRequests": 0,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 360,
+          "outputTokens": 15,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.00043500000000000006
+        },
+        "claude-opus-4-7[1m]": {
+          "inputTokens": 36,
+          "outputTokens": 8814,
+          "cacheReadInputTokens": 619774,
+          "cacheCreationInputTokens": 92163,
+          "webSearchRequests": 0,
+          "costUSD": 1.10643575
+        }
+      },
+      "lastSessionId": "8d9b12a5-2e88-466b-95cf-24f74ade9494",
+      "lastGracefulShutdown": true,
+      "exampleFilesGeneratedAt": 1776612278395,
+      "lastFpsAverage": 7.15,
+      "lastFpsLow1Pct": 236.59,
+      "lastSessionMetrics": {
+        "frame_duration_ms_count": 155,
+        "frame_duration_ms_min": 0.12762500000008004,
+        "frame_duration_ms_max": 15.375999999999976,
+        "frame_duration_ms_avg": 0.7305172064516394,
+        "frame_duration_ms_p50": 0.35824999999931606,
+        "frame_duration_ms_p95": 2.055983100000321,
+        "frame_duration_ms_p99": 4.195092500000829,
+        "hook_duration_ms_count": 1,
+        "hook_duration_ms_min": 506,
+        "hook_duration_ms_max": 506,
+        "hook_duration_ms_avg": 506,
+        "hook_duration_ms_p50": 506,
+        "hook_duration_ms_p95": 506,
+        "hook_duration_ms_p99": 506
+      }
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-sre-tools": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [],
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "lastCost": 0.3960647499999999,
+      "lastAPIDuration": 77931,
+      "lastAPIDurationWithoutRetries": 77926,
+      "lastToolDuration": 952,
+      "lastDuration": 107231,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 15467,
+      "lastTotalOutputTokens": 3746,
+      "lastTotalCacheCreationInputTokens": 38829,
+      "lastTotalCacheReadInputTokens": 112173,
+      "lastTotalWebSearchRequests": 0,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 12677,
+          "outputTokens": 1149,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.018422
+        },
+        "claude-opus-4-5-20251101": {
+          "inputTokens": 2790,
+          "outputTokens": 2597,
+          "cacheReadInputTokens": 112173,
+          "cacheCreationInputTokens": 38829,
+          "webSearchRequests": 0,
+          "costUSD": 0.37764274999999997
+        }
+      },
+      "lastSessionId": "91af1ad2-5578-4b8d-aa74-bd4c4019609c"
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/proj-safety-solution": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "Report.jsx",
+        "main.py",
+        "RecommendResult.jsx",
+        "App.jsx",
+        "recommend_service.py"
+      ],
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "exampleFilesGeneratedAt": 1766580935045
+    },
+    "/Users/toru_ishikawa/ghq/github.com/1shikawa/my-resume": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "projectOnboardingSeenCount": 9,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "package.json",
+        "Architecture.md",
+        "index.tsx",
+        "style.css",
+        ".textlintrc"
+      ],
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "lastCost": 5.774410250000002,
+      "lastAPIDuration": 949908,
+      "lastAPIDurationWithoutRetries": 949153,
+      "lastToolDuration": 2195,
+      "lastDuration": 63100127,
+      "lastLinesAdded": 81,
+      "lastLinesRemoved": 90,
+      "lastTotalInputTokens": 475,
+      "lastTotalOutputTokens": 53488,
+      "lastTotalCacheCreationInputTokens": 387353,
+      "lastTotalCacheReadInputTokens": 4031078,
+      "lastTotalWebSearchRequests": 0,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 345,
+          "outputTokens": 14,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.000415
+        },
+        "claude-opus-4-6[1m]": {
+          "inputTokens": 130,
+          "outputTokens": 53474,
+          "cacheReadInputTokens": 4031078,
+          "cacheCreationInputTokens": 387353,
+          "webSearchRequests": 0,
+          "costUSD": 5.773995250000001
+        }
+      },
+      "lastSessionId": "db9c0339-c61f-4abf-9893-a1978fa9f398",
+      "exampleFilesGeneratedAt": 1772771899306,
+      "lastFpsAverage": 0.24,
+      "lastFpsLow1Pct": 153.3,
+      "lastSessionMetrics": {
+        "frame_duration_ms_count": 15138,
+        "frame_duration_ms_min": 0.06091599999490427,
+        "frame_duration_ms_max": 34.78479199996218,
+        "frame_duration_ms_avg": 1.7143425517885527,
+        "frame_duration_ms_p50": 1.3744794999947771,
+        "frame_duration_ms_p95": 3.515356249851173,
+        "frame_duration_ms_p99": 5.707363750059153,
+        "hook_duration_ms_count": 68,
+        "hook_duration_ms_min": 156,
+        "hook_duration_ms_max": 3265,
+        "hook_duration_ms_avg": 880.3970588235294,
+        "hook_duration_ms_p50": 249.5,
+        "hook_duration_ms_p95": 3229.6,
+        "hook_duration_ms_p99": 3251.6,
+        "pre_tool_hook_duration_ms_count": 35,
+        "pre_tool_hook_duration_ms_min": 0,
+        "pre_tool_hook_duration_ms_max": 4,
+        "pre_tool_hook_duration_ms_avg": 0.22857142857142856,
+        "pre_tool_hook_duration_ms_p50": 0,
+        "pre_tool_hook_duration_ms_p95": 1.1999999999999886,
+        "pre_tool_hook_duration_ms_p99": 4
+      }
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/ccoe-dns-record-iac": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [],
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      }
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [],
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "lastCost": 0.3254092500000001,
+      "lastAPIDuration": 35682,
+      "lastAPIDurationWithoutRetries": 35682,
+      "lastToolDuration": 0,
+      "lastDuration": 319140757,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 769,
+      "lastTotalOutputTokens": 2572,
+      "lastTotalCacheCreationInputTokens": 38847,
+      "lastTotalCacheReadInputTokens": 37109,
+      "lastTotalWebSearchRequests": 0,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 751,
+          "outputTokens": 54,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.0010210000000000002
+        },
+        "claude-opus-4-5-20251101": {
+          "inputTokens": 18,
+          "outputTokens": 2518,
+          "cacheReadInputTokens": 37109,
+          "cacheCreationInputTokens": 38847,
+          "webSearchRequests": 0,
+          "costUSD": 0.32438825000000004
+        }
+      },
+      "lastSessionId": "d4b57e84-c8cd-4125-ab7d-d6d83fa4a9ab"
+    },
+    "/Users/toru_ishikawa/ghq/github.com/ascend-ltd/ascend-infra/worktrees/add-otel-and-tempo-for-apm": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "ascend-std-eks-cluster.ts",
+        "ascend-quicksight-stack.ts",
+        "ascend-logi-runtime-stack.ts",
+        "ascend-std-argocd.ts",
+        "context.ts"
+      ],
+      "exampleFilesGeneratedAt": 1769165698554,
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "hasCompletedProjectOnboarding": true,
+      "lastCost": 1.9429933000000004,
+      "lastAPIDuration": 291157,
+      "lastAPIDurationWithoutRetries": 291152,
+      "lastToolDuration": 102250,
+      "lastDuration": 17059248,
+      "lastLinesAdded": 785,
+      "lastLinesRemoved": 243,
+      "lastTotalInputTokens": 2026,
+      "lastTotalOutputTokens": 20946,
+      "lastTotalCacheCreationInputTokens": 298282,
+      "lastTotalCacheReadInputTokens": 1884756,
+      "lastTotalWebSearchRequests": 0,
+      "lastModelUsage": {
+        "claude-opus-4-5-20251101": {
+          "inputTokens": 746,
+          "outputTokens": 12655,
+          "cacheReadInputTokens": 1365538,
+          "cacheCreationInputTokens": 94522,
+          "webSearchRequests": 0,
+          "costUSD": 1.5936365
+        },
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1280,
+          "outputTokens": 8291,
+          "cacheReadInputTokens": 519218,
+          "cacheCreationInputTokens": 203760,
+          "webSearchRequests": 0,
+          "costUSD": 0.3493568
+        }
+      },
+      "lastSessionId": "898df7df-f978-421e-b548-bc6f98cf2241"
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/machine-simulation-IaC": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "projectOnboardingSeenCount": 4,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "terragrunt.hcl",
+        "terragrunt.hcl",
+        "terragrunt.hcl",
+        "terragrunt.hcl",
+        "terragrunt.hcl"
+      ],
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "lastCost": 61.24470924999996,
+      "lastAPIDuration": 2148766,
+      "lastAPIDurationWithoutRetries": 2141896,
+      "lastToolDuration": 2355536,
+      "lastDuration": 1327477068,
+      "lastLinesAdded": 253,
+      "lastLinesRemoved": 209,
+      "lastTotalInputTokens": 288,
+      "lastTotalOutputTokens": 79055,
+      "lastTotalCacheCreationInputTokens": 5778869,
+      "lastTotalCacheReadInputTokens": 46297926,
+      "lastTotalWebSearchRequests": 0,
+      "lastModelUsage": {
+        "claude-opus-4-6[1m]": {
+          "inputTokens": 288,
+          "outputTokens": 79055,
+          "cacheReadInputTokens": 46297926,
+          "cacheCreationInputTokens": 5778869,
+          "webSearchRequests": 0,
+          "costUSD": 61.24470924999996
+        }
+      },
+      "lastSessionId": "8b88f079-f082-429c-94ba-de702a3851cf",
+      "lastFpsAverage": 0,
+      "lastFpsLow1Pct": 9.81,
+      "exampleFilesGeneratedAt": 1772591013003,
+      "lastSessionMetrics": {
+        "frame_duration_ms_count": 260,
+        "frame_duration_ms_min": 0.25325000000003683,
+        "frame_duration_ms_max": 1070.3803339973092,
+        "frame_duration_ms_avg": 11.244860880707854,
+        "frame_duration_ms_p50": 3.411437001079321,
+        "frame_duration_ms_p95": 19.834983650152573,
+        "frame_duration_ms_p99": 87.14954318985406,
+        "hook_duration_ms_count": 1,
+        "hook_duration_ms_min": 556,
+        "hook_duration_ms_max": 556,
+        "hook_duration_ms_avg": 556,
+        "hook_duration_ms_p50": 556,
+        "hook_duration_ms_p95": 556,
+        "hook_duration_ms_p99": 556
+      },
+      "disabledMcpServers": [
+        "tfmcp"
+      ],
+      "lastGracefulShutdown": true
+    },
+    "/Users/toru_ishikawa": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [],
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "lastCost": 0.5643032499999999,
+      "lastAPIDuration": 66497,
+      "lastAPIDurationWithoutRetries": 66390,
+      "lastToolDuration": 58476,
+      "lastDuration": 190563,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 372,
+      "lastTotalOutputTokens": 2994,
+      "lastTotalCacheCreationInputTokens": 43457,
+      "lastTotalCacheReadInputTokens": 435294,
+      "lastTotalWebSearchRequests": 0,
+      "lastFpsAverage": 12.8,
+      "lastFpsLow1Pct": 367.75,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 350,
+          "outputTokens": 13,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.000415
+        },
+        "claude-opus-4-6[1m]": {
+          "inputTokens": 22,
+          "outputTokens": 2981,
+          "cacheReadInputTokens": 435294,
+          "cacheCreationInputTokens": 43457,
+          "webSearchRequests": 0,
+          "costUSD": 0.5638882499999999
+        }
+      },
+      "lastSessionId": "ee0b357b-e5da-45ca-95f0-aa0922b1eb04",
+      "lastSessionMetrics": {
+        "frame_duration_ms_count": 2414,
+        "frame_duration_ms_min": 0.05587500000547152,
+        "frame_duration_ms_max": 7.154957999999169,
+        "frame_duration_ms_avg": 0.568807313172998,
+        "frame_duration_ms_p50": 0.3924585000058869,
+        "frame_duration_ms_p95": 1.376508150002337,
+        "frame_duration_ms_p99": 2.546393589998458,
+        "hook_duration_ms_count": 16,
+        "hook_duration_ms_min": 164,
+        "hook_duration_ms_max": 3426,
+        "hook_duration_ms_avg": 1433.25,
+        "hook_duration_ms_p50": 627.5,
+        "hook_duration_ms_p95": 3280.5,
+        "hook_duration_ms_p99": 3396.9,
+        "pre_tool_hook_duration_ms_count": 10,
+        "pre_tool_hook_duration_ms_min": 0,
+        "pre_tool_hook_duration_ms_max": 0,
+        "pre_tool_hook_duration_ms_avg": 0,
+        "pre_tool_hook_duration_ms_p50": 0,
+        "pre_tool_hook_duration_ms_p95": 0,
+        "pre_tool_hook_duration_ms_p99": 0
+      }
+    },
+    "/Users/toru_ishikawa/ghq/github.com/ascend-ltd/ascend-k8s-manifests": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [],
+      "lastCost": 0.9077234999999999,
+      "lastAPIDuration": 160191,
+      "lastAPIDurationWithoutRetries": 160180,
+      "lastToolDuration": 2319,
+      "lastDuration": 213469,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 11562,
+      "lastTotalOutputTokens": 9085,
+      "lastTotalCacheCreationInputTokens": 53658,
+      "lastTotalCacheReadInputTokens": 580308,
+      "lastTotalWebSearchRequests": 0,
+      "lastFpsAverage": 16.42,
+      "lastFpsLow1Pct": 103.8,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 507,
+          "outputTokens": 35,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.000682
+        },
+        "claude-opus-4-6": {
+          "inputTokens": 11055,
+          "outputTokens": 9050,
+          "cacheReadInputTokens": 580308,
+          "cacheCreationInputTokens": 53658,
+          "webSearchRequests": 0,
+          "costUSD": 0.9070415000000001
+        }
+      },
+      "lastSessionId": "e20632f7-490b-4e95-903d-c1b7df8c8363",
+      "lastSessionMetrics": {
+        "frame_duration_ms_count": 3502,
+        "frame_duration_ms_min": 0.2677920000060112,
+        "frame_duration_ms_max": 147.5245409999916,
+        "frame_duration_ms_avg": 1.4999450219874062,
+        "frame_duration_ms_p50": 0.9087294999990263,
+        "frame_duration_ms_p95": 3.2568376000001944,
+        "frame_duration_ms_p99": 6.575363910007797
+      }
+    },
+    "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-tms-api": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "projectOnboardingSeenCount": 1,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "go.mod",
+        "device_auth_user.go",
+        "setup.go",
+        "const.go",
+        "setting.go"
+      ],
+      "exampleFilesGeneratedAt": 1775922981756,
+      "lastCost": 3.4905747500000004,
+      "lastAPIDuration": 400477,
+      "lastAPIDurationWithoutRetries": 400404,
+      "lastToolDuration": 746127,
+      "lastDuration": 1775407,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 3961,
+      "lastTotalOutputTokens": 25210,
+      "lastTotalCacheCreationInputTokens": 373203,
+      "lastTotalCacheReadInputTokens": 1019258,
+      "lastTotalWebSearchRequests": 0,
+      "lastFpsAverage": 9.97,
+      "lastFpsLow1Pct": 305.31,
+      "lastModelUsage": {
+        "claude-opus-4-6[1m]": {
+          "inputTokens": 3614,
+          "outputTokens": 25198,
+          "cacheReadInputTokens": 1019258,
+          "cacheCreationInputTokens": 373203,
+          "webSearchRequests": 0,
+          "costUSD": 3.4901677500000003
+        },
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 347,
+          "outputTokens": 12,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.00040699999999999997
+        }
+      },
+      "lastSessionId": "1e9cb6bb-eb62-414c-97d1-83d9e33672b7",
+      "lastSessionMetrics": {
+        "frame_duration_ms_count": 17687,
+        "frame_duration_ms_min": 0.05683399999907124,
+        "frame_duration_ms_max": 56.24945899999875,
+        "frame_duration_ms_avg": 1.078781533441789,
+        "frame_duration_ms_p50": 1.02618800001801,
+        "frame_duration_ms_p95": 2.111723200022243,
+        "frame_duration_ms_p99": 4.939330180053366,
+        "hook_duration_ms_count": 34,
+        "hook_duration_ms_min": 155,
+        "hook_duration_ms_max": 3476,
+        "hook_duration_ms_avg": 584,
+        "hook_duration_ms_p50": 228,
+        "hook_duration_ms_p95": 3234.7999999999997,
+        "hook_duration_ms_p99": 3406.7000000000003,
+        "pre_tool_hook_duration_ms_count": 25,
+        "pre_tool_hook_duration_ms_min": 0,
+        "pre_tool_hook_duration_ms_max": 1,
+        "pre_tool_hook_duration_ms_avg": 0.2,
+        "pre_tool_hook_duration_ms_p50": 0,
+        "pre_tool_hook_duration_ms_p95": 1,
+        "pre_tool_hook_duration_ms_p99": 1
+      }
+    }
+  },
+  "fallbackAvailableWarningThreshold": 0.2,
+  "firstStartTime": "2025-10-24T04:40:25.926Z",
+  "sonnet45MigrationComplete": true,
+  "claudeCodeFirstTokenDate": "2025-03-26T08:36:56.006715Z",
+  "hasCompletedOnboarding": true,
+  "lastOnboardingVersion": "2.0.25",
+  "hasOpusPlanDefault": false,
+  "lastReleaseNotesSeen": "2.1.116",
+  "s1mAccessCache": {
+    "bcf1a465-6d67-4f3a-abf9-fb94aed6205f": {
+      "hasAccess": false,
+      "hasAccessNotAsDefault": false,
+      "timestamp": 1771293681802
+    }
+  },
+  "mcpServers": {
+    "sequentialthinking": {
+      "command": "/usr/local/bin/docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/sequentialthinking"
+      ]
+    },
+    "git": {
+      "command": "/Users/toru_ishikawa/.local/share/mise/shims/uvx",
+      "args": [
+        "mcp-server-git",
+        "--repository",
+        "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-IaC",
+        "--repository",
+        "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project"
+      ]
+    },
+    "Context7": {
+      "command": "/Users/toru_ishikawa/.local/share/mise/shims/npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp@latest"
+      ]
+    },
+    "fetch": {
+      "command": "/Users/toru_ishikawa/.local/share/mise/shims/uvx",
+      "args": [
+        "mcp-server-fetch"
+      ]
+    },
+    "terraform-mcp-server": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "hashicorp/terraform-mcp-server"
+      ]
+    },
+    "gemini-google-search": {
+      "command": "/Users/toru_ishikawa/.local/share/mise/shims/npx",
+      "args": [
+        "mcp-gemini-google-search"
+      ],
+      "env": {
+        "GEMINI_PROVIDER": "vertex",
+        "VERTEX_PROJECT_ID": "dev-eb-sol-pf",
+        "VERTEX_LOCATION": "us-central1",
+        "GEMINI_MODEL": "gemini-2.5-flash"
+      }
+    },
+    "serena": {
+      "type": "stdio",
+      "command": "/Users/toru_ishikawa/.local/share/mise/shims/uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/oraios/serena",
+        "serena",
+        "start-mcp-server",
+        "--context",
+        "ide-assistant"
+      ],
+      "env": {}
+    },
+    "awslabs-aws-documentation-mcp-server": {
+      "command": "/Users/toru_ishikawa/.local/share/mise/shims/uvx",
+      "args": [
+        "awslabs.aws-documentation-mcp-server@latest"
+      ],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      }
+    },
+    "aws-knowledge-mcp-server": {
+      "command": "/Users/toru_ishikawa/.local/share/mise/shims/uvx",
+      "args": [
+        "fastmcp",
+        "run",
+        "https://knowledge-mcp.global.api.aws"
+      ]
+    },
+    "awslabs-cdk-mcp-server": {
+      "command": "/Users/toru_ishikawa/.local/share/mise/shims/uvx",
+      "args": [
+        "awslabs.cdk-mcp-server@latest"
+      ],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      }
+    },
+    "awslabs-terraform-mcp-server": {
+      "command": "/Users/toru_ishikawa/.local/share/mise/shims/uvx",
+      "args": [
+        "awslabs.terraform-mcp-server@latest"
+      ],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      }
+    },
+    "awslabs-cfn-mcp-server": {
+      "command": "/Users/toru_ishikawa/.local/share/mise/shims/uvx",
+      "args": [
+        "awslabs.cfn-mcp-server@latest",
+        "--readonly"
+      ],
+      "env": {
+        "AWS_PROFILE": "LogiDev"
+      }
+    },
+    "deepwiki": {
+      "command": "/Users/toru_ishikawa/.local/share/mise/shims/npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.deepwiki.com/sse"
+      ]
+    },
+    "memory": {
+      "command": "/usr/local/bin/docker",
+      "args": [
+        "run",
+        "-i",
+        "-v",
+        "claude-memory:/app/dist",
+        "--rm",
+        "mcp/memory"
+      ]
+    },
+    "github": {
+      "command": "/usr/local/bin/docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "ghcr.io/github/github-mcp-server"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
+      }
+    },
+    "notionApi": {
+      "command": "/Users/toru_ishikawa/.local/share/mise/shims/npx",
+      "args": [
+        "-y",
+        "@notionhq/notion-mcp-server"
+      ],
+      "env": {
+        "OPENAPI_MCP_HEADERS": "{\"Authorization\": \"Bearer ntn_R7106950449aynSyi7MXH1R9GM7gzaybLQKnljRn8vm1gx\", \"Notion-Version\": \"2022-06-28\" }"
+      }
+    },
+    "kubernetes": {
+      "command": "/Users/toru_ishikawa/.local/share/mise/shims/npx",
+      "args": [
+        "mcp-server-kubernetes"
+      ]
+    },
+    "cloud-run": {
+      "command": "/Users/toru_ishikawa/.local/share/mise/shims/npx",
+      "args": [
+        "-y",
+        "https://github.com/GoogleCloudPlatform/cloud-run-mcp"
+      ]
+    },
+    "awslabs-eks-mcp-server": {
+      "command": "/Users/toru_ishikawa/.local/share/mise/shims/uvx",
+      "args": [
+        "awslabs.eks-mcp-server@latest",
+        "--allow-sensitive-data-access"
+      ],
+      "env": {
+        "AWS_PROFILE": "LogiDev",
+        "AWS_REGION": "ap-northeast-1"
+      }
+    },
+    "excalidraw": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--network",
+        "host",
+        "-e",
+        "EXPRESS_SERVER_URL=http://localhost:3000",
+        "-e",
+        "ENABLE_CANVAS_SYNC=true",
+        "ghcr.io/yctimlin/mcp_excalidraw:latest"
+      ]
+    },
+    "atlassian": {
+      "type": "sse",
+      "url": "https://mcp.atlassian.com/v1/sse"
+    },
+    "pal": {
+      "command": "bash",
+      "args": [
+        "-c",
+        "/Users/toru_ishikawa/.local/share/mise/shims/uvx --from git+https://github.com/BeehiveInnovations/pal-mcp-server.git pal-mcp-server"
+      ],
+      "env": {
+        "PATH": "/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin:~/.local/bin",
+        "GEMINI_API_KEY": "AIzaSyDyAxMqCz_irpSLeCcLNEEk93bQcz69pZU",
+        "OPENAI_API_KEY": "sk-proj-xxxxx",
+        "DISABLED_TOOLS": "",
+        "DEFAULT_MODEL": "auto"
+      }
+    },
+    "playwright": {
+      "type": "stdio",
+      "command": "/Users/toru_ishikawa/.local/share/mise/shims/npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ],
+      "env": {}
+    },
+    "google-dev-knowledge": {
+      "type": "http",
+      "url": "https://developerknowledge.googleapis.com/mcp",
+      "headers": {
+        "X-Goog-Api-Key": "AIzaSyB1c7g7Zzvwl7E-Eb3Vl19sRuQle2XPCAE"
+      }
+    },
+    "drawio": {
+      "command": "/Users/toru_ishikawa/.local/share/mise/shims/npx",
+      "args": [
+        "-y",
+        "@drawio/mcp"
+      ]
+    },
+    "tempo": {
+      "type": "http",
+      "url": "http://localhost:3200/api/mcp"
+    },
+    "grafana": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "mcp-grafana"
+      ],
+      "env": {
+        "GRAFANA_URL": "https://grafana-gr.logi-dev.ascendltd.jp/",
+        "GRAFANA_SERVICE_ACCOUNT_TOKEN": "glsa_xxxxx"
+      }
+    }
+  },
+  "passesEligibilityCache": {
+    "bcf1a465-6d67-4f3a-abf9-fb94aed6205f": {
+      "eligible": true,
+      "referral_code_details": {
+        "code": "OZgf-fP6Wg",
+        "campaign": "claude_code_guest_pass_a47c",
+        "referral_link": "https://claude.ai/referral/OZgf-fP6Wg"
+      },
+      "referrer_reward": {
+        "amount_minor_units": 1000,
+        "currency": "USD"
+      },
+      "remaining_passes": 3,
+      "timestamp": 1776789781897
+    }
+  },
+  "githubRepoPaths": {
+    "earthbrain/sol-project-iac": [
+      "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-IaC",
+      "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-IaC/iac/src/roots/subsystems/sol/dev",
+      "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-IaC/iac/src/roots/subsystems",
+      "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-IaC/worktrees/DEV-10181-Enable-iac-deployment-to-be-performed-with-cloud-deploy",
+      "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-IaC/worktrees/DEV-10232-Remove-staging-configs"
+    ],
+    "earthbrain/ccoe-governance-infra": [
+      "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/ccoe-governance-infra"
+    ],
+    "ascend-ltd/ascend-infra": [
+      "/Users/toru_ishikawa/ghq/github.com/ascend-ltd/ascend-infra",
+      "/Users/toru_ishikawa/ghq/github.com/ascend-ltd/ascend-infra/ascend-accounts",
+      "/Users/toru_ishikawa/ghq/github.com/ascend-ltd/ascend-infra/worktrees/add-otel-and-tempo-for-apm",
+      "/Users/toru_ishikawa/ghq/github.com/ascend-ltd/ascend-infra/ascend-logi-runtime/bin",
+      "/Users/toru_ishikawa/ghq/github.com/ascend-ltd/ascend-infra/ascend-logi-runtime",
+      "/Users/toru_ishikawa/ghq/github.com/ascend-ltd/ascend-infra/ascend-shared-constructs"
+    ],
+    "earthbrain/ebc-base-infra": [
+      "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/ebc-base-infra/worktrees/fdfdfdffdfdfdfdf",
+      "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/ebc-base-infra/test/aaaa",
+      "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/ebc-base-infra"
+    ],
+    "earthbrain/sol-secret-storage": [
+      "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-secret-storage"
+    ],
+    "earthbrain/sol-project": [
+      "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project"
+    ],
+    "ascend-ltd/ascend-logi": [
+      "/Users/toru_ishikawa/ghq/github.com/ascend-ltd/ascend-logi"
+    ],
+    "earthbrain/ccoe-google-workspace-iac": [
+      "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/ccoe-google-workspace-iac"
+    ],
+    "coderabbitai/git-worktree-runner": [
+      "/Users/toru_ishikawa/ghq/github.com/coderabbitai/git-worktree-runner"
+    ],
+    "earthbrain/sol-project-sre-tools": [
+      "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-sre-tools/container_images/terragrunt",
+      "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-sre-tools"
+    ],
+    "earthbrain/proj-safety-solution": [
+      "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/proj-safety-solution"
+    ],
+    "1shikawa/my-resume": [
+      "/Users/toru_ishikawa/ghq/github.com/1shikawa/my-resume"
+    ],
+    "earthbrain/ccoe-dns-record-iac": [
+      "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/ccoe-dns-record-iac"
+    ],
+    "earthbrain/machine-simulation-iac": [
+      "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/machine-simulation-IaC",
+      "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/machine-simulation-IaC/worktrees/fix-remove-sam-management-resource",
+      "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/machine-simulation-IaC/prod/ap-northeast-1/security-group"
+    ],
+    "ascend-ltd/ascend-k8s-manifests": [
+      "/Users/toru_ishikawa/ghq/github.com/ascend-ltd/ascend-k8s-manifests"
+    ],
+    "earthbrain/sol-project-tms-api": [
+      "/Users/toru_ishikawa/ghq/github.com/EARTHBRAIN/sol-project-tms-api"
+    ]
+  },
+  "opus45MigrationComplete": true,
+  "hasShownOpus45Notice": {
+    "bcf1a465-6d67-4f3a-abf9-fb94aed6205f": true
+  },
+  "officialMarketplaceAutoInstallAttempted": true,
+  "officialMarketplaceAutoInstalled": true,
+  "passesUpsellSeenCount": 3,
+  "thinkingMigrationComplete": true,
+  "changelogLastFetched": 1776768829329,
+  "shiftEnterKeyBindingInstalled": true,
+  "groveConfigCache": {
+    "494cff77-bcf9-4159-9d85-3257796a27e2": {
+      "grove_enabled": true,
+      "timestamp": 1776789783250
+    }
+  },
+  "skillUsage": {
+    "pal:clink (MCP)": {
+      "usageCount": 3,
+      "lastUsedAt": 1768500055498
+    },
+    "pal:listmodels (MCP)": {
+      "usageCount": 10,
+      "lastUsedAt": 1769397519179
+    },
+    "pal:version (MCP)": {
+      "usageCount": 1,
+      "lastUsedAt": 1768500001302
+    },
+    "pal:review (MCP)": {
+      "usageCount": 4,
+      "lastUsedAt": 1769396683860
+    },
+    "context7-research": {
+      "usageCount": 2,
+      "lastUsedAt": 1770624165975
+    },
+    "superpowers:brainstorm": {
+      "usageCount": 5,
+      "lastUsedAt": 1773284324241
+    },
+    "superpowers:brainstorming": {
+      "usageCount": 7,
+      "lastUsedAt": 1776613546015
+    },
+    "superpowers:write-plan": {
+      "usageCount": 3,
+      "lastUsedAt": 1769396490016
+    },
+    "superpowers:writing-plans": {
+      "usageCount": 4,
+      "lastUsedAt": 1776448514050
+    },
+    "superpowers:subagent-driven-development": {
+      "usageCount": 3,
+      "lastUsedAt": 1776475794936
+    },
+    "diagram-generator-html": {
+      "usageCount": 2,
+      "lastUsedAt": 1771467579689
+    },
+    "learn": {
+      "usageCount": 9,
+      "lastUsedAt": 1775119404501
+    },
+    "drawio": {
+      "usageCount": 2,
+      "lastUsedAt": 1772606040349
+    },
+    "brainstorming": {
+      "usageCount": 1,
+      "lastUsedAt": 1775144249840
+    },
+    "codex:setup": {
+      "usageCount": 1,
+      "lastUsedAt": 1775208393513
+    },
+    "codex:review": {
+      "usageCount": 2,
+      "lastUsedAt": 1775208925879
+    },
+    "superpowers:systematic-debugging": {
+      "usageCount": 2,
+      "lastUsedAt": 1776161004308
+    },
+    "wikigen": {
+      "usageCount": 1,
+      "lastUsedAt": 1775922988039
+    },
+    "serena": {
+      "usageCount": 1,
+      "lastUsedAt": 1776436511163
+    },
+    "superpowers:executing-plans": {
+      "usageCount": 1,
+      "lastUsedAt": 1776613781630
+    }
+  },
+  "opusProMigrationComplete": true,
+  "cachedChromeExtensionInstalled": false,
+  "hasVisitedPasses": false,
+  "passesLastSeenRemaining": 3,
+  "clientDataCache": {},
+  "hasShownOpus46Notice": {
+    "bcf1a465-6d67-4f3a-abf9-fb94aed6205f": true
+  },
+  "penguinModeOrgEnabled": false,
+  "showSpinnerTree": false,
+  "effortCalloutDismissed": true,
+  "sonnet1m45MigrationComplete": true,
+  "cachedExtraUsageDisabledReason": "org_level_disabled",
+  "toolUsage": {
+    "Bash": {
+      "usageCount": 654,
+      "lastUsedAt": 1772608775577
+    },
+    "Read": {
+      "usageCount": 371,
+      "lastUsedAt": 1772612054376
+    },
+    "Grep": {
+      "usageCount": 31,
+      "lastUsedAt": 1772593935716
+    },
+    "Edit": {
+      "usageCount": 86,
+      "lastUsedAt": 1772594128507
+    },
+    "ToolSearch": {
+      "usageCount": 19,
+      "lastUsedAt": 1772771856119
+    },
+    "mcp__serena__initial_instructions": {
+      "usageCount": 1,
+      "lastUsedAt": 1771953403797
+    },
+    "mcp__serena__check_onboarding_performed": {
+      "usageCount": 2,
+      "lastUsedAt": 1771953420369
+    },
+    "mcp__serena__activate_project": {
+      "usageCount": 3,
+      "lastUsedAt": 1772001111188
+    },
+    "mcp__serena__onboarding": {
+      "usageCount": 1,
+      "lastUsedAt": 1771953428594
+    },
+    "mcp__serena__list_dir": {
+      "usageCount": 12,
+      "lastUsedAt": 1772001146594
+    },
+    "mcp__serena__write_memory": {
+      "usageCount": 5,
+      "lastUsedAt": 1771953557147
+    },
+    "mcp__serena__get_symbols_overview": {
+      "usageCount": 1,
+      "lastUsedAt": 1771984615595
+    },
+    "mcp__Context7__resolve-library-id": {
+      "usageCount": 2,
+      "lastUsedAt": 1772415471632
+    },
+    "mcp__Context7__query-docs": {
+      "usageCount": 3,
+      "lastUsedAt": 1772417541080
+    },
+    "Task": {
+      "usageCount": 1,
+      "lastUsedAt": 1772003889594
+    },
+    "AskUserQuestion": {
+      "usageCount": 7,
+      "lastUsedAt": 1772594092411
+    },
+    "Write": {
+      "usageCount": 84,
+      "lastUsedAt": 1772608763576
+    },
+    "Glob": {
+      "usageCount": 26,
+      "lastUsedAt": 1772605249000
+    },
+    "mcp__aws-knowledge-mcp-server__aws___search_documentation": {
+      "usageCount": 1,
+      "lastUsedAt": 1772178282961
+    },
+    "mcp__aws-knowledge-mcp-server__aws___read_documentation": {
+      "usageCount": 1,
+      "lastUsedAt": 1772178290618
+    },
+    "mcp__gemini-google-search__google_search": {
+      "usageCount": 3,
+      "lastUsedAt": 1772771840598
+    },
+    "Agent": {
+      "usageCount": 6,
+      "lastUsedAt": 1772608062801
+    },
+    "WebFetch": {
+      "usageCount": 5,
+      "lastUsedAt": 1772771880306
+    },
+    "Skill": {
+      "usageCount": 1,
+      "lastUsedAt": 1772606040354
+    }
+  },
+  "ideHintShownCount": 5,
+  "claudeAiMcpEverConnected": [
+    "claude.ai AWS Knowledge MCP Server"
+  ],
+  "effortCalloutV2Dismissed": true,
+  "additionalModelOptionsCache": [],
+  "overageCreditGrantCache": {
+    "bcf1a465-6d67-4f3a-abf9-fb94aed6205f": {
+      "info": {
+        "available": false,
+        "eligible": false,
+        "granted": false,
+        "amount_minor_units": null,
+        "currency": null
+      },
+      "timestamp": 1776788265901
+    }
+  },
+  "migrationVersion": 11,
+  "deepLinkTerminal": "Ghostty",
+  "oauthAccount": {
+    "accountUuid": "494cff77-bcf9-4159-9d85-3257796a27e2",
+    "emailAddress": "ishikawa.toru@gmail.com",
+    "organizationUuid": "bcf1a465-6d67-4f3a-abf9-fb94aed6205f",
+    "hasExtraUsageEnabled": false,
+    "billingType": "stripe_subscription",
+    "accountCreatedAt": "2024-03-08T09:21:38.474166Z",
+    "subscriptionCreatedAt": "2025-03-26T08:47:38.451411Z",
+    "displayName": "Toru",
+    "organizationRole": "admin",
+    "workspaceRole": null,
+    "organizationName": "ishikawa.toru@gmail.com's Organization"
+  },
+  "overageCreditUpsellSeenCount": 3,
+  "additionalModelCostsCache": {},
+  "opus47LaunchSeenCount": 12
+}
