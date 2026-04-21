@@ -1,0 +1,22 @@
+actions:
+  # Display current directory
+  - name: current_dir
+    command: "echo '{.cwd | split(\"/\") | .[-1]}'"
+    color: bright_blue
+
+  # Show Git branch
+  - name: git_branch
+    command: "git branch --show-current 2>/dev/null || echo 'no-git'"
+    color: green
+
+  # Show session ID (first 8 chars)
+  - name: session
+    command: "echo '{.session_id | .[0:8]}'"
+    color: gray
+
+  # Show ccusage
+  - name: ccusage
+    command: "npx ccusage@latest statusline"
+    color: gray
+
+separator: " | "

@@ -1,6 +1,6 @@
 # HomeBrewのインストール
 if [ ! -x "$(which brew)" ]; then
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew update
 fi
 
@@ -22,7 +22,8 @@ mas install 1429033973 # RunCat
 mas install 1333542190 # 1Password 7
 mas install 1339170533 # CleanMyMac X
 
-brew install google-japanese-ime --cask
+brew install google-japanese-ime --cask # ime
+brew install azookey --cask # ime
 # brew install google-chrome --cask
 # brew install firefox --cask
 # brew install dropbox --cask
@@ -45,6 +46,7 @@ brew install toggl-track --cask
 brew install lens --cask # manage k8s
 # brew install clipy --cask
 brew install warp --cask    # ternimal
+brew install ghostty --cask    # ternimal
 brew install raycast --cask # rancher
 # brew install tableplus --cask # db client
 # brew install arc --cask       # cronium browser
@@ -55,6 +57,8 @@ brew install orbstack --cask # for Docker desktop replacement
 brew install keyclu --cask     # shortcuts cheet sheet
 brew install sequel-ace --cask # db client
 brew install sidekick --cask   # sidekick
+brew install --cask drawio
+brew install --cask cleanshot # cleanshot x
 
 brew tap aws/tap
 brew tap jhawthorn/fzy # enhancd

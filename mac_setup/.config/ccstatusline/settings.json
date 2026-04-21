@@ -1,0 +1,69 @@
+{
+  "version": 3,
+  "lines": [
+    [],
+    [
+      {
+        "id": "16a65ede-550a-4f64-9147-3ab8e9d9c4cf",
+        "type": "custom-command",
+        "backgroundColor": "bgBrightWhite",
+        "commandPath": "basename \"$(pwd)\"\r"
+      },
+      {
+        "id": "6c69d936-6955-4c51-975b-53cd051346c9",
+        "type": "git-branch",
+        "backgroundColor": "bgCyan"
+      },
+      {
+        "id": "3558e1bd-3fc8-4002-a0cc-c2d136daeff8",
+        "type": "version",
+        "backgroundColor": "bgBlue"
+      },
+      {
+        "id": "e39f8893-216d-40b4-9fac-234adc68b669",
+        "type": "context-length",
+        "backgroundColor": "bgYellow"
+      },
+      {
+        "id": "bb2890fe-6774-4c57-8231-d665ea07b286",
+        "type": "context-percentage-usable",
+        "backgroundColor": "bgBrightRed"
+      },
+      {
+        "id": "aff0d9e8-4ea2-412f-a943-d47ae2e1dcbd",
+        "type": "session-usage",
+        "backgroundColor": "bgYellow"
+      },
+      {
+        "id": "c1fb05f6-5566-4491-8275-e62d1b5d6007",
+        "type": "weekly-usage",
+        "backgroundColor": "bgBrightCyan"
+      },
+      {
+        "id": "2b42f975-2b1c-439b-8526-1f9628ab5f9c",
+        "type": "session-cost",
+        "backgroundColor": "bgBrightBlack"
+      }
+    ],
+    []
+  ],
+  "flexMode": "full",
+  "compactThreshold": 60,
+  "colorLevel": 2,
+  "defaultPadding": " ",
+  "inheritSeparatorColors": false,
+  "globalBold": false,
+  "powerline": {
+    "enabled": true,
+    "separators": [
+      ""
+    ],
+    "separatorInvertBackground": [
+      false
+    ],
+    "startCaps": [],
+    "endCaps": [],
+    "theme": "nord-aurora",
+    "autoAlign": true
+  }
+}
