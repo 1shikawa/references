@@ -1,0 +1,90 @@
+<mxfile host="app.diagrams.net" modified="2024-01-01T00:00:00.000Z" agent="Claude" version="21.0.0" type="device">
+  <diagram id="gcp-basic" name="GCP Basic Architecture">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Internet -->
+        <mxCell id="internet" value="Internet" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="484" y="30" width="120" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- VPC -->
+        <mxCell id="vpc" value="VPC Network" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FBBC05;dashed=1;strokeWidth=2;verticalAlign=top;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="100" y="150" width="900" height="500" as="geometry" />
+        </mxCell>
+
+        <!-- Subnet 1 (asia-northeast1) -->
+        <mxCell id="subnet-1" value="Subnet&#xa;asia-northeast1&#xa;(10.0.1.0/24)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#34A853;dashed=0;verticalAlign=top;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="130" y="200" width="380" height="420" as="geometry" />
+        </mxCell>
+
+        <!-- Subnet 2 (asia-northeast2) -->
+        <mxCell id="subnet-2" value="Subnet&#xa;asia-northeast2&#xa;(10.0.2.0/24)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#4285F4;dashed=0;verticalAlign=top;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="590" y="200" width="380" height="420" as="geometry" />
+        </mxCell>
+
+        <!-- Cloud Load Balancing -->
+        <mxCell id="lb" value="Cloud&#xa;Load Balancing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FBBC05;strokeColor=#5F6368;fontColor=#5F6368;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="484" y="170" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- GCE Instance 1 -->
+        <mxCell id="gce-1" value="Compute&#xa;Engine" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4285F4;strokeColor=#5F6368;fontColor=#FFFFFF;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="260" y="300" width="100" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- GCE Instance 2 -->
+        <mxCell id="gce-2" value="Compute&#xa;Engine" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4285F4;strokeColor=#5F6368;fontColor=#FFFFFF;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="730" y="300" width="100" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Cloud SQL -->
+        <mxCell id="cloudsql" value="Cloud SQL&#xa;(HA)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#4285F4;strokeColor=#5F6368;fontColor=#FFFFFF;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="260" y="480" width="100" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Cloud Storage -->
+        <mxCell id="gcs" value="Cloud&#xa;Storage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#34A853;strokeColor=#5F6368;fontColor=#FFFFFF;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="730" y="500" width="100" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Pub/Sub -->
+        <mxCell id="pubsub" value="Pub/Sub" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EA4335;strokeColor=#5F6368;fontColor=#FFFFFF;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="484" y="400" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Connections -->
+        <mxCell id="edge-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=2;" edge="1" parent="1" source="internet" target="lb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="edge-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;" edge="1" parent="1" source="lb" target="gce-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="edge-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;" edge="1" parent="1" source="lb" target="gce-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="edge-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;" edge="1" parent="1" source="gce-1" target="cloudsql">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="edge-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;" edge="1" parent="1" source="gce-1" target="pubsub">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="edge-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;" edge="1" parent="1" source="gce-2" target="pubsub">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="edge-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=1;" edge="1" parent="1" source="gce-2" target="gcs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

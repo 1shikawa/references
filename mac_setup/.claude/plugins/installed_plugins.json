@@ -1,0 +1,167 @@
+{
+  "version": 2,
+  "plugins": {
+    "document-skills@anthropic-agent-skills": [
+      {
+        "scope": "user",
+        "installPath": "/Users/toru_ishikawa/.claude/plugins/cache/anthropic-agent-skills/document-skills/unknown",
+        "version": "unknown",
+        "installedAt": "2025-10-30T02:11:42.474Z",
+        "lastUpdated": "2025-10-30T02:11:42.474Z",
+        "gitCommitSha": "c74d647e56e6daa12029b6acb11a821348ad044b"
+      }
+    ],
+    "example-skills@anthropic-agent-skills": [
+      {
+        "scope": "user",
+        "installPath": "/Users/toru_ishikawa/.claude/plugins/cache/anthropic-agent-skills/example-skills/ef740771ac90",
+        "version": "ef740771ac90",
+        "installedAt": "2025-12-04T01:49:02.985Z",
+        "lastUpdated": "2025-12-04T01:49:02.985Z",
+        "gitCommitSha": "ef740771ac901e03fbca3ce4e1c453a96010f30a"
+      }
+    ],
+    "pr-review-comment-utilizer@kcc": [
+      {
+        "scope": "user",
+        "installPath": "/Users/toru_ishikawa/.claude/plugins/cache/kcc/pr-review-comment-utilizer/0.1.0",
+        "version": "0.1.0",
+        "installedAt": "2025-12-11T11:02:51.173Z",
+        "lastUpdated": "2025-12-11T11:02:51.173Z",
+        "gitCommitSha": "ec6c2a53c6c2c87135d3c917272e4a2b6cdba7c4"
+      }
+    ],
+    "explanatory-output-style@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/toru_ishikawa/.claude/plugins/cache/claude-plugins-official/explanatory-output-style/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2025-12-20T03:33:25.614Z",
+        "lastUpdated": "2026-03-29T13:03:30.445Z"
+      }
+    ],
+    "gopls-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/toru_ishikawa/.claude/plugins/cache/claude-plugins-official/gopls-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2025-12-20T03:35:26.149Z",
+        "lastUpdated": "2025-12-20T03:35:26.149Z"
+      }
+    ],
+    "learning-output-style@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/toru_ishikawa/.claude/plugins/cache/claude-plugins-official/learning-output-style/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2025-12-20T03:38:55.444Z",
+        "lastUpdated": "2026-03-29T13:03:30.446Z"
+      }
+    ],
+    "pyright-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/toru_ishikawa/.claude/plugins/cache/claude-plugins-official/pyright-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2025-12-20T03:39:51.874Z",
+        "lastUpdated": "2025-12-20T03:39:51.874Z"
+      }
+    ],
+    "typescript-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/toru_ishikawa/.claude/plugins/cache/claude-plugins-official/typescript-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2025-12-20T03:40:25.844Z",
+        "lastUpdated": "2025-12-20T03:40:25.844Z"
+      }
+    ],
+    "ralph-wiggum@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/toru_ishikawa/.claude/plugins/cache/claude-plugins-official/ralph-wiggum/unknown",
+        "version": "unknown",
+        "installedAt": "2025-12-28T09:18:41.461Z",
+        "lastUpdated": "2025-12-28T09:18:41.461Z"
+      }
+    ],
+    "pr-review-toolkit@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/toru_ishikawa/.claude/plugins/cache/claude-plugins-official/pr-review-toolkit/unknown",
+        "version": "unknown",
+        "installedAt": "2026-01-08T03:25:43.422Z",
+        "lastUpdated": "2026-04-14T06:53:37.148Z"
+      }
+    ],
+    "superpowers@superpowers-marketplace": [
+      {
+        "scope": "user",
+        "installPath": "/Users/toru_ishikawa/.claude/plugins/cache/superpowers-marketplace/superpowers/4.0.3",
+        "version": "4.0.3",
+        "installedAt": "2026-01-22T15:04:11.473Z",
+        "lastUpdated": "2026-01-22T15:04:11.473Z",
+        "gitCommitSha": "a01a135fe185559ff9dc84dd70d6e9bb57d92bdf"
+      }
+    ],
+    "claude-mem@thedotmack": [
+      {
+        "scope": "user",
+        "installPath": "/Users/toru_ishikawa/.claude/plugins/cache/thedotmack/claude-mem/9.1.1",
+        "version": "9.1.1",
+        "installedAt": "2026-02-07T17:34:00.321Z",
+        "lastUpdated": "2026-02-07T17:34:00.321Z",
+        "gitCommitSha": "dac989c69729a3b54baa8a61c5b979cb478e2e12"
+      }
+    ],
+    "deploy-on-aws@agent-plugins-for-aws": [
+      {
+        "scope": "user",
+        "installPath": "/Users/toru_ishikawa/.claude/plugins/cache/agent-plugins-for-aws/deploy-on-aws/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-02-22T09:29:54.846Z",
+        "lastUpdated": "2026-02-22T09:29:54.846Z",
+        "gitCommitSha": "280fbc4d0cddad8bae85ab48640c21f3e7e1e2fb"
+      }
+    ],
+    "codex@openai-codex": [
+      {
+        "scope": "user",
+        "installPath": "/Users/toru_ishikawa/.claude/plugins/cache/openai-codex/codex/1.0.2",
+        "version": "1.0.2",
+        "installedAt": "2026-04-03T09:26:15.186Z",
+        "lastUpdated": "2026-04-03T09:26:15.186Z",
+        "gitCommitSha": "8e403f9d4b496b0b0aff50fa3673f889f6a22cb1"
+      }
+    ],
+    "claude-md-management@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/toru_ishikawa/.claude/plugins/cache/claude-plugins-official/claude-md-management/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-04-06T08:07:32.021Z",
+        "lastUpdated": "2026-04-06T08:07:32.021Z"
+      }
+    ],
+    "deploy-on-aws@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/toru_ishikawa/.claude/plugins/cache/claude-plugins-official/deploy-on-aws/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-04-14T08:55:06.110Z",
+        "lastUpdated": "2026-04-14T08:55:06.110Z",
+        "gitCommitSha": "b467313c6001132b634579a10ed0325c806f3c98"
+      }
+    ],
+    "warp@claude-code-warp": [
+      {
+        "scope": "user",
+        "installPath": "/Users/toru_ishikawa/.claude/plugins/cache/claude-code-warp/warp/2.0.0",
+        "version": "2.0.0",
+        "installedAt": "2026-04-21T11:20:53.662Z",
+        "lastUpdated": "2026-04-21T11:20:53.662Z",
+        "gitCommitSha": "b8ad3cc6c1e40b2d2a944f900a4ae0904a54dd7f"
+      }
+    ]
+  }
+}
