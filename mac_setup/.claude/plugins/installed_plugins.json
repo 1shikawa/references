@@ -76,15 +76,6 @@
         "lastUpdated": "2025-12-20T03:40:25.844Z"
       }
     ],
-    "ralph-wiggum@claude-plugins-official": [
-      {
-        "scope": "user",
-        "installPath": "/Users/toru_ishikawa/.claude/plugins/cache/claude-plugins-official/ralph-wiggum/unknown",
-        "version": "unknown",
-        "installedAt": "2025-12-28T09:18:41.461Z",
-        "lastUpdated": "2025-12-28T09:18:41.461Z"
-      }
-    ],
     "pr-review-toolkit@claude-plugins-official": [
       {
         "scope": "user",
@@ -161,6 +152,16 @@
         "installedAt": "2026-04-21T11:20:53.662Z",
         "lastUpdated": "2026-04-21T11:20:53.662Z",
         "gitCommitSha": "b8ad3cc6c1e40b2d2a944f900a4ae0904a54dd7f"
+      }
+    ],
+    "aws-core@agent-toolkit-for-aws": [
+      {
+        "scope": "user",
+        "installPath": "/Users/toru_ishikawa/.claude/plugins/cache/agent-toolkit-for-aws/aws-core/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-05-07T09:41:00.244Z",
+        "lastUpdated": "2026-05-07T09:41:00.244Z",
+        "gitCommitSha": "750230758fbf23acd60d075dedd7ead4092127ce"
       }
     ]
   }

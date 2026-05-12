@@ -1,7 +1,10 @@
 [settings]
 legacy_version_file = false
 experimental = true
-# disable_backends = ["asdf", "vfox"]
+# install_before = "14d"
+disable_backends = ["asdf", "vfox"]
+npm.package_manager = "bun"
+pipx.uvx = true
 
 [tools]
 gcloud = "latest"
@@ -31,7 +34,7 @@ krew = "latest"
 yq = "latest"
 # [Python]
 python = "3.13"
-uv = "0.9.26"
+uv = "0.11.8"
 "pipx:cfn-lint" = "latest"
 "pipx:git-remote-codecommit" = "latest"
 "pipx:snowflake-cli" = "latest"
@@ -70,7 +73,7 @@ url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d
 "go:github.com/d-kuro/gwq/cmd/gwq" = "latest"
 dive = "latest"
 actionlint = "latest"
-"go:github.com/GoogleCloudPlatform/gke-mcp" = "latest"
+"go:github.com/GoogleCloudPlatform/gke-mcp" = "0.10.0"
 gum = "latest"
 fzf = "latest"
 "cargo:tfmcp" = "latest"
@@ -84,7 +87,9 @@ zoxide = "latest"
 bun = "latest"
 "npm:ccmanager" = "latest"
 "npm:@aikidosec/safe-chain" = "latest"
-
+"http:dbt-fusion" = { version = "2.0.0-preview.174", url = "https://public.cdn.getdbt.com/fs/cli/fs-v{{ version }}-aarch64-apple-darwin.tar.gz", version_list_url = "https://public.cdn.getdbt.com/fs/versions.json", version_json_path = ".latest.tag" }
+"github:k1LoW/mo" = "latest"
+"github:tqer39/ccw-cli" = "latest"
 
 [tasks.aws-sso-login-logiDev]
 alias = "al"
@@ -110,4 +115,3 @@ run = "sh ~/.claude/hooks/explain-commits-with-summary.sh"
 alias = "aws-sso"
 description = "AWS SSOで認証し、一時認証情報を環境変数にエクスポートする"
 run = "source ~/.config/mise/aws-sso-export.sh"
-
